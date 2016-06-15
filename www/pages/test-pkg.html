@@ -1,0 +1,727 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <script src="lib/jquery/dist/jquery.js"></script>
+</head>
+<body>
+
+<script>
+    // ArrayBuffer转为字符串，参数为ArrayBuffer对象
+    function ab2str(buf) {
+        return String.fromCharCode.apply(null, new Uint16Array(buf));
+    }
+
+    // 字符串转为ArrayBuffer对象，参数为字符串
+    function str2ab(str) {
+        var buf = new ArrayBuffer(str.length * 2); // 每个字符占用2个字节
+        var bufView = new Uint16Array(buf);
+        for (var i = 0, strLen = str.length; i < strLen; i++) {
+            bufView[i] = str.charCodeAt(i);
+        }
+        return buf;
+    }
+
+    function buffer2strHex(buffer) {
+        var array = Array.from(new Uint8Array(buffer));
+
+        return array.reduce(function (mem, item) {
+
+            var str = item.toString(16).toUpperCase();
+
+            if (str.length < 2) {
+                str = '0' + str;
+            }
+
+            return mem + str + ' ';
+        }, '');
+
+    }
+</script>
+
+<script>
+    var Constants = {
+        fieldTypes: {
+            DATATYPE_INT_8: 1,
+            DATATYPE_INT_16: 2,
+            DATATYPE_INT_32: 3,
+            DATATYPE_FLOAT_32: 4,
+            DATATYPE_FLOAT_64: 5,
+            DATATYPE_BYTEARRAY: 6
+        },
+        length: {
+            head: 2,
+            lengthOfPkg: 4,
+            cmd: 4,
+            role: 1,
+            flag: 2,
+            srcId: 4,
+            dstId: 4,
+            fieldCnt: 2,
+            tail: 2,
+            lengthOfFieldData: 2
+        },
+        encoding: 'utf-8'
+    };
+
+    var Field = (function () {
+
+        function Constructor() {
+            Constructor.prototype.initialize.apply(this, arguments);
+        }
+
+        $.extend(Constructor.prototype, {
+
+            initialize: function (attrs) {
+                this._dataType = attrs.dataType;
+                this._data = attrs.data;
+                this._length = attrs.length;
+            },
+
+            dataType: function (dataType) {
+
+                if (dataType) {
+                    this._dataType = dataType;
+                } else {
+                    return this._dataType;
+                }
+
+            },
+
+            data: function (data) {
+
+                if (data) {
+                    this._data = data;
+                } else {
+                    return this._data;
+                }
+
+            },
+
+            length: function (length) {
+
+                if (length) {
+                    this._length = length;
+                } else {
+                    return this._length;
+                }
+
+            }
+        });
+
+        return Constructor;
+
+    }());
+
+    var FieldList = (function () {
+
+        function Constructor() {
+            Constructor.prototype.initialize.apply(this, arguments);
+        }
+
+        $.extend(Constructor.prototype, {
+
+            initialize: function () {
+                this._fieldList = [];
+                this._textEncoder = new TextEncoder(Constants.encoding);
+                this._textDecoder = new TextDecoder(Constants.encoding);
+            },
+
+            fieldList: function () {
+                return this._fieldList;
+            },
+
+            putField: function (field) {
+                this._fieldList.push(field);
+            },
+
+            putInt8: function (val) {
+                var length = Int8Array.BYTES_PER_ELEMENT;
+                var buffer = new ArrayBuffer(length);
+                var dataView = new DataView(buffer);
+
+                dataView.setInt16(0, val);
+
+                var field = new Field({
+                    dataType: Constants.fieldTypes.DATATYPE_INT_8,
+                    data: buffer,
+                    length: length
+                });
+
+                this._fieldList.push(field);
+            },
+
+            putInt16: function (val) {
+                var length = Int16Array.BYTES_PER_ELEMENT;
+                var buffer = new ArrayBuffer(length);
+                var dataView = new DataView(buffer);
+
+                dataView.setInt16(0, val);
+
+                var field = new Field({
+                    dataType: Constants.fieldTypes.DATATYPE_INT_16,
+                    data: buffer,
+                    length: length
+                });
+
+                this._fieldList.push(field);
+            },
+
+            putInt32: function (val) {
+                var length = Int32Array.BYTES_PER_ELEMENT;
+                var buffer = new ArrayBuffer(length);
+                var dataView = new DataView(buffer);
+
+                dataView.setInt32(0, val);
+
+                var field = new Field({
+                    dataType: Constants.fieldTypes.DATATYPE_INT_32,
+                    data: buffer,
+                    length: length
+                });
+
+                this._fieldList.push(field);
+            },
+
+            putFloat32: function (val) {
+                var length = Float32Array.BYTES_PER_ELEMENT;
+                var buffer = new ArrayBuffer(length);
+                var dataView = new DataView(buffer);
+
+                dataView.setInt32(0, val);
+
+                var field = new Field({
+                    dataType: Constants.fieldTypes.DATATYPE_FLOAT_32,
+                    data: buffer,
+                    length: length
+                });
+
+                this._fieldList.push(field);
+            },
+
+            putFloat64: function (val) {
+                var length = Float64Array.BYTES_PER_ELEMENT;
+                var buffer = new ArrayBuffer(length);
+                var dataView = new DataView(buffer);
+
+                dataView.setInt32(0, val);
+
+                var field = new Field({
+                    dataType: Constants.fieldTypes.DATATYPE_FLOAT_64,
+                    data: buffer,
+                    length: length
+                });
+
+                this._fieldList.push(field);
+            },
+
+            putBytes: function (buffer) {
+                var field = new Field({
+                    dataType: Constants.fieldTypes.DATATYPE_BYTEARRAY,
+                    data: buffer,
+                    length: buffer.byteLength
+                });
+
+                this._fieldList.push(field);
+            },
+
+            putString: function (str) {
+                var buffer = this._textEncoder.encode(str);
+
+                this.putBytes(buffer);
+            },
+
+            getField: function (index) {
+
+                if (index >= 0 && index < this._fieldList.length) {
+                    return this._fieldList[index];
+                } else {
+                    return null;
+                }
+
+            },
+
+            getInt8: function (index) {
+
+                var field;
+                var data;
+                var dataView;
+
+                if (index >= 0 && index < this._fieldList.length) {
+                    field = this._fieldList[index];
+                    data = field.data();
+                    dataView = new DataView(data);
+
+                    return dataView.getInt8(0);
+                } else {
+                    return 0;
+                }
+            },
+
+            getInt16: function (index) {
+
+                var field;
+                var data;
+                var dataView;
+
+                if (index >= 0 && index < this._fieldList.length) {
+                    field = this._fieldList[index];
+                    data = field.data();
+                    dataView = new DataView(data);
+
+                    return dataView.getInt16(0);
+                } else {
+                    return 0;
+                }
+            },
+
+            getInt32: function (index) {
+
+                var field;
+                var data;
+                var dataView;
+
+                if (index >= 0 && index < this._fieldList.length) {
+                    field = this._fieldList[index];
+                    data = field.data();
+                    dataView = new DataView(data);
+
+                    return dataView.getInt32(0);
+                } else {
+                    return 0;
+                }
+            },
+
+            getBytes: function (index) {
+                var field;
+
+                if (index >= 0 && index < this._fieldList.length) {
+                    field = this._fieldList[index];
+
+                    return field.data();
+                } else {
+                    return null;
+                }
+            },
+
+            getString: function (index) {
+                var field;
+                var data;
+
+                if (index >= 0 && index < this._fieldList.length) {
+                    field = this._fieldList[index];
+                    data = field.data();
+
+                    return this._textDecoder.decode(data);
+                } else {
+                    return '';
+                }
+            }
+
+        });
+
+        return Constructor;
+
+    }());
+
+    var Pkg = (function () {
+
+        function Constructor() {
+            Constructor.prototype.initialize.apply(this, arguments);
+        }
+
+        $.extend(Constructor, {
+            unserialize: function (buffer) {
+                var dataView = new DataView(buffer);
+                var pkg = new Pkg;
+                var index = 0;
+                var fieldCnt;
+
+                pkg.head(dataView.getUint16(index));
+                index += Constants.length.head;
+
+                pkg.length(dataView.getInt32(index));
+                index += Constants.length.lengthOfPkg;
+
+                pkg.cmd(dataView.getInt32(index));
+                index += Constants.length.cmd;
+
+                pkg.role(dataView.getUint8(index));
+                index += Constants.length.role;
+
+                pkg.flag(dataView.getInt16(index));
+                index += Constants.length.flag;
+
+                pkg.srcId(dataView.getInt32(index));
+                index += Constants.length.srcId;
+
+                pkg.dstId(dataView.getInt32(index));
+                index += Constants.length.dstId;
+
+                fieldCnt = dataView.getInt16(index);
+                pkg.fieldCnt(fieldCnt);
+                index += Constants.length.fieldCnt;
+
+                for (var i = 0; i < fieldCnt; i++) {
+                    var length, data;
+
+                    length = dataView.getInt16(index);
+                    index += Constants.length.lengthOfFieldData;
+
+                    data = buffer.slice(index, index + length);
+                    index += length;
+
+                    pkg.putField(new Field({
+                        dataType: Constants.fieldTypes.DATATYPE_BYTEARRAY,
+                        data: data,
+                        length: length
+                    }));
+                }
+
+                pkg.tail(dataView.getInt16(index));
+
+                return pkg;
+            },
+
+            serialize: function (pkg) {
+                var length = Constants.length.cmd + Constants.length.role + Constants.length.flag + Constants.length.srcId + Constants.length.dstId + Constants.length.fieldCnt;
+                var fixLength = Constants.length.head + Constants.length.tail + Constants.length.lengthOfPkg;
+                var fieldList = pkg.fieldList().fieldList();
+                var fieldCnt = fieldList.length;
+                var buffer;
+                var uInt8View;
+                var dataView;
+                var index = 0;
+
+                pkg.fieldCnt(fieldCnt);
+
+                length = fieldList.reduce(function (mem, field) {
+                    return mem + field.length() + Constants.length.lengthOfFieldData;
+                }, length);
+
+                fixLength += length;
+                pkg.length(length);
+
+                buffer = new ArrayBuffer(fixLength);
+                dataView = new DataView(buffer);
+                uInt8View = new Uint8Array(buffer);
+
+                dataView.setUint16(index, pkg.head());
+                index += Constants.length.head;
+
+                dataView.setInt32(index, pkg.length());
+                index += Constants.length.lengthOfPkg;
+
+                dataView.setInt32(index, pkg.cmd());
+                index += Constants.length.cmd;
+
+                dataView.setUint8(index, pkg.role());
+                index += Constants.length.role;
+
+                dataView.setInt16(index, pkg.flag());
+                index += Constants.length.flag;
+
+                dataView.setInt32(index, pkg.srcId());
+                index += Constants.length.srcId;
+
+                dataView.setInt32(index, pkg.dstId());
+                index += Constants.length.dstId;
+
+                dataView.setInt16(index, pkg.fieldCnt());
+                index += Constants.length.fieldCnt;
+
+                fieldList.forEach(function (field) {
+                    var data = field.data();
+                    var length = field.length();
+
+                    dataView.setInt16(index, length);
+                    index += Constants.length.lengthOfFieldData;
+
+                    uInt8View.set(new Uint8Array(data), index);
+                    index += length;
+                });
+
+                dataView.setUint16(index, pkg.tail());
+
+                return buffer;
+            }
+        });
+
+        $.extend(Constructor.prototype, {
+
+            initialize: function () {
+                this._head = 0xFAFB;
+                this._length = 0x00000000;
+                this._cmd = 0x00000000;
+                this._role = 0x00;
+                this._flag = 0x0000;
+                this._srcId = 0x00000000;
+                this._dstId = 0x00000000;
+                this._fieldCnt = 0x0000;
+                this._fieldList = new FieldList();
+                this._tail = 0xBFAF;
+            },
+
+            head: function (head) {
+
+                if (head) {
+                    this._head = head;
+                } else {
+                    return this._head;
+                }
+
+            },
+
+            length: function (length) {
+
+                if (length) {
+                    this._length = length;
+                } else {
+                    return this._length;
+                }
+
+            },
+
+            cmd: function (cmd) {
+
+                if (cmd) {
+                    this._cmd = cmd;
+                } else {
+                    return this._cmd;
+                }
+
+            },
+
+            role: function (role) {
+
+                if (role) {
+                    this._role = role;
+                } else {
+                    return this._role;
+                }
+
+            },
+
+            flag: function (flag) {
+
+                if (flag) {
+                    this._flag = flag;
+                } else {
+                    return this._flag;
+                }
+
+            },
+
+            srcId: function (srcId) {
+
+                if (srcId) {
+                    this._srcId = srcId;
+                } else {
+                    return this._srcId;
+                }
+
+            },
+
+            dstId: function (dstId) {
+
+                if (dstId) {
+                    this._dstId = dstId;
+                } else {
+                    return this._dstId;
+                }
+
+            },
+
+            fieldCnt: function (fieldCnt) {
+
+                if (fieldCnt) {
+                    this._fieldCnt = fieldCnt;
+                } else {
+                    return this._fieldCnt;
+                }
+
+            },
+
+            fieldList: function (fieldList) {
+
+                if (fieldList) {
+                    this._fieldList = fieldList;
+                } else {
+                    return this._fieldList;
+                }
+
+            },
+
+            tail: function (tail) {
+
+                if (tail) {
+                    this._tail = tail;
+                } else {
+                    return this._tail;
+                }
+
+            },
+
+            putField: function (field) {
+                this._fieldList.putField(field);
+            },
+
+            putInt8: function (val) {
+                this._fieldList.putInt8(val);
+            },
+
+            putInt16: function (val) {
+                this._fieldList.putInt16(val);
+            },
+
+            putInt32: function (val) {
+                this._fieldList.putInt32(val);
+            },
+
+            putFloat32: function (val) {
+                this._fieldList.putFloat32(val);
+            },
+
+            putFloat64: function (val) {
+                this._fieldList.putFloat64(val);
+            },
+
+            putString: function (str) {
+                this._fieldList.putString(str);
+            },
+
+            putBytes: function (buffer) {
+                this._fieldList.putBytes(buffer);
+            },
+
+            getField: function (index) {
+                return this._fieldList.getField(index);
+            },
+
+            getInt8: function (index) {
+                return this._fieldList.getInt8(index);
+            },
+
+            getInt16: function (index) {
+                return this._fieldList.getInt16(index);
+            },
+
+            getInt32: function (index) {
+                return this._fieldList.getInt32(index);
+            },
+
+            getFloat32: function (index) {
+                return this._fieldList.getFloat32(index);
+            },
+
+            getFloat64: function (index) {
+                return this._fieldList.getFloat64(index);
+            },
+
+            getString: function (index) {
+                return this._fieldList.getString(index);
+            },
+
+            getBytes: function (index) {
+                return this._fieldList.getBytes(index);
+            }
+
+        });
+
+        return Constructor;
+    }());
+
+    var ws = new WebSocket('ws://192.168.13.196:8080/wsentry');
+    ws.binaryType = 'arraybuffer';
+
+    ws.onopen = function () {
+        console.log('onopen: ', arguments);
+    };
+
+    ws.onerror = function () {
+        console.log('onerror: ', arguments);
+    };
+
+    ws.onclose = function () {
+        console.log('onclose: ', arguments);
+    };
+
+    ws.onmessage = function (event) {
+        var data = event.data;
+//        console.log('onmessage: ', event, data);
+
+        if (data instanceof ArrayBuffer) {
+
+            console.log('接收：', buffer2strHex(data));
+
+            var pkg = Pkg.unserialize(data);
+
+            console.log('pkg: ', pkg);
+            console.log('state: ', pkg.getInt8(0));
+            console.log('result: ', JSON.parse(pkg.getString(1)));
+
+            /*var context = data.slice(28, data.byteLength - 2);
+            var uInt8View = new Uint8Array(context);
+
+            var textDecoder = new TextDecoder(Constants.encoding);
+
+            var dataStr = textDecoder.decode(uInt8View);
+
+            console.log(JSON.parse(dataStr));*/
+        } else {
+            console.log(data);
+        }
+    };
+
+    function sendByte() {
+        var pkg = new Pkg();
+        pkg.cmd(0x00A40001);
+        pkg.role(0x01);
+        pkg.srcId(0x00000000);
+        pkg.dstId(0xFFFFFFFF);
+        pkg.putInt32(1);
+        pkg.putInt32(2);
+//        pkg.putString('18625240263');
+//        pkg.putString('111111');
+//        pkg.putInt32(200);
+//        pkg.putInt32(-1);
+//        pkg.putString('hello                          world');
+
+
+        var buffer = Pkg.serialize(pkg);
+        var array = Array.from(new Uint8Array(buffer));
+
+        var arrayHex = array.map(function (item) {
+            return item.toString(16).toUpperCase();
+        });
+
+        var arrayStr = buffer2strHex(buffer);
+
+//        console.log('arrayHex: ', arrayHex);
+        console.log('发送：', arrayStr);
+
+        ws.send(buffer);
+    }
+
+    function sendString() {
+        var data = 'hello world';
+        console.log('发送：', data);
+        ws.send(data);
+    }
+
+    /*$(function () {
+     setInterval(function () {
+     sendByte();
+     }, 2000);
+     });*/
+
+</script>
+
+<div>
+    <button onclick="sendByte();">发送字节数据</button>
+    <button onclick="sendString();">发送字符串数据</button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<ion-modal-view>
+    <ion-content class="item-request-bg">
+        <div class="request-person-block">
+            <p class="request-prompt-text prompt-text-location">正在请求远程协助...</p>
+            <div class="item-request-head-portrait">
+                <img class="request-head-portrait" ng-src="{{userIcon | prefixSrc}}">
+            </div>
+            <p class="request-nickname">{{nickName}}</p>
+        </div>
+        <div class="request-accept-and-refused clearfix">
+            <div class="requesting-refused-block">
+                <div class="item-request-refused-head-portrait" ng-click="handleHideRequestRemoteAssistance()">
+                    <img class="request-accept-head-portrait" src="img/request-refused.png">
+                </div>
+                <p class="request-refused-text-describe">取消</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

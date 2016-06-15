@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Test Voice</title>
+    <script src="lib/jquery/dist/jquery.js"></script>
+
+    <script>
+
+        var _resultStr;
+
+        $(function () {
+
+            function random(min, max) {
+                if (max == null) {
+                    max = min;
+                    min = 0;
+                }
+                return min + Math.floor(Math.random() * (max - min + 1));
+            }
+
+            window.yhAppCallJs = {
+                process: function (featureId, resultStr, callbackId) {
+                    console.log(arguments);
+
+                    _resultStr = resultStr;
+                }
+            };
+
+            $('#start').on('click', function () {
+                window.yhJsCallApp.process(0x2001, '', 0);
+            });
+
+            $('#stop').on('click', function () {
+                window.yhJsCallApp.process(0x2002, '', random(100, 9999));
+            });
+
+            $('#play').on('click', function () {
+                window.yhJsCallApp.process(0x2005, _resultStr, 0);
+            })
+        });
+
+    </script>
+</head>
+<body>
+
+<div>
+    <button id="start">开始录音</button>
+</div>
+
+<div>
+    <button id="stop">停止录音</button>
+</div>
+
+<div>
+    <button id="play">开始播放</button>
+</div>
+
+<div>
+    <button id="pause">暂停播放</button>
+</div>
+
+<audio src=""></audio>
+
+
+</body>
+</html>

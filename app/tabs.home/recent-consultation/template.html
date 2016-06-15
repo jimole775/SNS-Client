@@ -1,0 +1,48 @@
+<ion-view view-title="最近咨询">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="deleteConsultation()">清空</button>
+    </ion-nav-buttons>
+
+    <ion-content class="has-tabs item-bg">
+
+        <ion-refresher
+                pulling-text="努力加载中..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <div class="list">
+            <div class="item-engineer-box" ng-repeat="user in userList">
+                <a class="item-engineer item-thumbnail-left item-engineer-has-right"
+                   ui-sref="tab.assistance-expert-detail({ contactId: user.id })">
+                    <!--<img src="{{item.icon}}">-->
+                    <img src="img/engineer-Zhao.png">
+
+                    <p class="item-engineer-skill">擅长：
+                        <!--<img ng-repeat=" brand in item.branList" src="{{brand.icon_ur}}">-->
+                        <img src="img/nissan_png.png">
+                        <img src="img/Rolls_Royce.png">
+                    </p>
+
+                    <p class="item-engineer-rate">
+                        解决率：
+                        <span>{{ user.popularity }}</span>
+                    </p>
+
+                    <p class="item-engineer-introduce">
+                        介绍：
+                        <span ng-repeat="userSkill in user.userSkilledList">{{ userSkill.description }}</span>
+                    </p>
+
+                    <p class="item-engineer-name">{{ user.username }}</p>
+                </a>
+                <a ng-class={'chatbox-a':user.state===1,'chatbox':user.state===0}
+                   ng-click="chat(user.state,user.id,user.username)">
+                    <i class="iconfont icon-duihua " ng-class={'chatBoxIcon-a':user.state===1,'chatBoxIcon':user.state===0}></i>
+
+                    <p>咨询</p></a>
+
+            </div>
+        </div>
+    </ion-content>
+
+</ion-view>

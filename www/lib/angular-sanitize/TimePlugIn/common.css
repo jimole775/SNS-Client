@@ -1,0 +1,41 @@
+body, div, ul, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { padding:0;margin:0; }
+ul,li{ list-style: none;}
+*{color: #898989;font-size: 20px;}
+.page {display: none;position: absolute;top: 0;left: 0;bottom: 0;right: 0;width: 100%;height: 100%;overflow: hidden;}
+
+
+
+#datescroll_datetime div{float: left;margin-left: 10%;padding-right: 22px;}
+/*TOP和BOTTOM值是必须设置项*/
+#Hourwrapper{position: absolute;left: 8%;top:0;bottom: 0;width:80%;}
+#Minutewrapper{position: absolute;left: 38%;top:0;bottom: 0;width:80%;}
+#Secondwrapper{position: absolute;left: 50%;top:0;bottom: 0;width:80%;}
+
+/*增加手指滑动触摸面积*/
+#Hourwrapper ul li{height:40px;}
+#Minutewrapper ul li{height:40px;}
+#Secondwrapper ul li{height:40px;}
+
+
+#timemark{font-size: 22px;left:5%;width: 90%;height: 40px;border-top: 1px solid #f5600c;border-bottom: 1px solid #f5600c;position:absolute;top:90px;line-height:40px;/*background:-webkit-gradient(linear, 0 0, 0 100%, from(#f7fcf0), to(#c4fdb3));*/}
+#markhour{position:relative; left: 38%;top:0; color:#f5600c}
+#markminut{position:relative; left: 61%;top:0; color:#f5600c}
+#marksecond{position:relative; left: 68px;top:0;}
+
+#dateheader{width: 100%;height: 50px;background: #79C12F;text-align: center;color: #fff;line-height: 50px;font-size: 20px;}
+
+#dateshadow{display: none;position: absolute;width: 100%;height: 100%;top:0;left:0;background: #000; filter:alpha(Opacity=50);-moz-opacity:0.5;opacity: 0.5;}
+#datePage{font-size: 22px; position:absolute;top:110px;MARGIN-RIGHT: auto;vertical-align:middle;
+MARGIN-LEFT: auto;width: 80%;;height: 240px;background: #FFFFFF;z-index:9999999;}
+#datetitle{width: 100%;height: 50px;background: #79C12F;text-align: center;color: #fff;line-height: 50px;font-size: 20px;}
+#datescroll_datetime{position:relative;overflow:hidden;width:94%; margin:10px 3%;height: 120px;text-align: center;line-height: 40px;}
+
+#Hourwrapper ul,#Minutewrapper ul,#Secondwrapper ul{width:40%;}
+#dateFooter{width:100%;background: #333;height: 50px;bottom: 0px;position: absolute;}
+.default{
+    color: #898989;font-size: 20px;
+
+}
+.mark{
+    color: #f5600c;font-size: 24px;
+}

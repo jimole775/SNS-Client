@@ -1,0 +1,31 @@
+<ion-view view-title="服务介绍">
+    <ion-header-bar class="bar-technician__circle">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="goBackSeting()">
+                <i class="iconfont icon-return return-size-pop"></i>
+            </button>
+        </div>
+        <h1 class="title">服务介绍</h1>
+
+        <div class="buttons">
+            <button class="button button-clear" ng-click="ServiceIntroduction()">确定</button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content class="scroll-content ionic-scroll item-bg has-header">
+        <form name="SolutionsText">
+            <div class="fill-report-solution clearfix" ng-show="userSetDetail.description!=''">
+                <textarea class="solution-textarea-text" placeholder="{{userSetDetail.description}}" ng-model="Solutions.text"
+                          ng-maxlength="46" name="nameNo" required></textarea>
+            </div>
+            <div class="fill-report-solution clearfix" ng-show="userSetDetail.description==''">
+                <textarea class="solution-textarea-text" placeholder="说说你擅长的" ng-model="Solutions.text"
+                          ng-maxlength="46" name="name" required></textarea>
+            </div>
+            <div class="error">
+                <h5 class="solution-prompt">最多写<span class="changecolor">46</span>个字</h5>
+            </div>
+
+        </form>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,118 @@
+<ion-view view-title="">
+    <ion-content class="has-header item-bg">
+        <div class="split-personal">
+            <!--<span ui-sref="tab.more-my-messages({userId:id})">我的消息</span>-->
+
+            <div class="hand">
+
+                <div class="hand-more" ui-sref="tab.home.person-data">
+                    <div class="hand-more-avatar">
+                        <div class="avatar-border-trans"></div>
+                        <img class="avatar-img"  ng-src="{{ userDetail.icon | prefixSrc }}">
+                        <!-- <div class="personal-class">
+                             <span>LV.{{userDetail.grade }}</span>
+                         </div>-->
+                        <div class="personal-class">
+                            <span>{{ userDetail.grade }}级技师</span>
+                        </div>
+                    </div>
+
+                    <p class="personal-name clearfix">
+                        <span class="the-personal-name ellipsis">
+                            {{ userDetail.nickName }}
+                            <span class="iconfont icon-man expert-icon-man" ng-show="userDetail.sex===2"></span>
+                            <span class="iconfont icon-woman expert-icon-man" ng-show="userDetail.sex===1"></span>
+                        </span>
+
+                    </p>
+                </div>
+                <div class="hand-more-index clearfix">
+                    <span class="hand-more-index-settlement ">
+                        <i class="hand-index-value">{{userDetail.resolvedCount}}</i>
+                        <i class="hand-index-title">解决数</i>
+                    </span>
+                    <span class="hand-more-index-settlement the-last-settle-border">
+                        <i class="hand-index-value">{{userDetail.popularity}}</i>
+                        <i class="hand-index-title">人气</i>
+                    </span>
+                    <!--金币功能暂时用不到,先注释-->
+                   <!-- <span class="hand-index-popularity">
+                          <i class="hand-index-value">{{userDetail.gold}}</i>
+                          <i class="hand-index-title">金币</i>
+                    </span>-->
+                </div>
+            </div>
+            <div class="split-personal-other">
+                <label class="item item-radio" ui-sref="tab.home.assist-record">
+                    <input type="radio" name="group">
+                    <a href="#" class="">
+                        <div class="item-content text-black-color">
+                            <i class="iconfont icon-document personal-ion "></i>
+                            协助记录
+                            <i class="ion-ios-arrow-forward car-ion-property"></i>
+
+                        </div>
+                    </a>
+                </label>
+                <!--咨询记录能暂时用不到,先注释-->
+                <!--<label class="item item-radio" ui-sref="tab.home.recent-consultation({userId:id})">
+                    <input type="radio" name="group">
+                    <a href="#" class="">
+                        <div class="item-content text-black-color ">
+                            <i class="iconfont icon-consult personal-ion"></i>
+                            咨询记录
+                            <i class="ion-ios-arrow-forward car-ion-property"></i>
+
+                        </div>
+                    </a>
+                </label>-->
+            </div>
+
+            <div class="split-personal-other">
+                <!--<label class="item item-radio" ng-click="expertSetting()">-->
+                <label class="item item-radio" ui-sref="tab.home.expert-setting({userId: userDetail.userId})">
+                    <input type="radio" name="group">
+                    <a href="#">
+                        <div class="item-content text-black-color">
+                            <i class="iconfont icon-tool-line personal-ion "></i>
+                            技师设置
+                            <i class="ion-ios-arrow-forward car-ion-property"></i>
+
+                        </div>
+                    </a>
+                </label>
+                <!--申请升级暂时用不到,先注释-->
+                <!--<label class="item item-radio">
+                    <input type="radio" name="group">
+                    <a href="#">
+                        <div class="item-content text-black-color">
+                            <i class="iconfont icon-man-experts personal-ion "></i>
+                            申请升级
+                            <i class="ion-ios-arrow-forward car-ion-property"></i>
+
+                        </div>
+                    </a>
+                </label>-->
+            </div>
+
+            <div class="split-personal-other the-last-style">
+                <label class="item item-radio" ng-click="goToSetting()">
+                    <input type="radio" name="group">
+                    <a href="#" class="">
+                        <div class="item-content text-black-color">
+                            <i class="iconfont icon-set-line personal-ion "></i>
+                            设置
+                            <i class="ion-ios-arrow-forward car-ion-property"></i>
+                        </div>
+                    </a>
+                </label>
+            </div>
+            <div class="refund-group-btn">
+                <button class="button button-block button-assertive" ng-click="exitSign()">
+                退 出
+                </button>
+            </div>
+
+        </div>
+    </ion-content>
+</ion-view>

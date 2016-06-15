@@ -1,0 +1,27 @@
+<!--<div class="bar-index-nav"></div>-->
+
+<ion-view view-title="修车宝" index-font-size> <!--修车宝 -->
+    <ion-nav-buttons side="left">
+        <a class="button button-icon" style="line-height: 1.6rem; font-size: 0.7rem;" ng-click="clickCCDPBusinessSystemSetting()">
+            <i class="iconfont icon-set-line menu-size" style="font-size: 0.7rem;"></i>
+        </a>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <a class="button button-icon" style="line-height: 1.6rem; font-size: 0.7rem;" ng-click="clickLinkSet()">
+            <i class="iconfont icon-link menu-size" style="font-size: 0.7rem;" ng-show="wifiSettingStatus==0 && DevSettingStatus==0"></i>
+            <i class="iconfont icon-unlink menu-size" style="font-size: 0.7rem;" ng-show="wifiSettingStatus==1 || DevSettingStatus==1"></i>
+        </a>
+    </ion-nav-buttons>
+    <div id="mainPages"></div>
+<div class="tipbox" ng-show="isActive">
+    <div class="tipbox-content">
+        <span class="tipbox-span">感谢您对我们的信赖，首次使用修车宝需要激活!</span>
+        <button class="tipbox-button">
+            <a class="tipbox-back-text" ng-click="goToActive()">前往激活</a>
+            <i class="ion-chevron-right"></i>
+        </button>
+    </div>
+</div>
+<script>
+
+</script>

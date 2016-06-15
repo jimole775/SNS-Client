@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Fill Report</title>
+
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style></style>
+</head>
+<body>
+
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="nav-bar-block " nav-bar="active">
+        <ion-header-bar class="bar-positive bar bar-header disable-user-behavior" align-title="center">
+
+            <div class="title title-center header-item" >填写报告</div>
+            <button class="button back-button buttons  button-clear header-item">确定</button>
+
+        </ion-header-bar>
+    </div>
+</ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+        <ion-nav-view name="tab-chats" class="view-container tab-content" nav-view="active" nav-view-transition="ios"
+                      nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Ben Sparrow" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class=" scroll-content ionic-scroll  has-header  scroll-width scroll-bg-color">
+                    <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+                        <div class=" item-divider item-bg">
+                            <div class="fill-report-top clearfix">
+                                <p class="fill-report-title">您是否已解决技师问题（故障是否已排除）？</p>
+                                <div  class="fill-report-btn">
+                                    <a class="report-bnt-one fill-report-color-blue">未解决</a>
+                                    <a class="report-bnt-two fill-report-color fill-report-color-white">已解决</a>
+                                </div>
+                            </div>
+                            <div class="fill-report-top fill-report-top-border clearfix">
+                                <p class=" fill-report-color-blue fill-report-padding-top">原因</p>
+                                <div  class="fill-report-reason">
+                                    <ul>
+                                        <li><a class="fill-report-reason-btn-blue fill-report-color">电路异常</a></li>
+                                        <li><a class="fill-report-reason-btn-gray">电路异常</a></li>
+                                        <li><a class="fill-report-reason-btn-gray">发动机异常</a></li>
+                                        <li><a class="fill-report-reason-btn-gray">电路异常</a></li>
+                                        <li><a class="fill-report-reason-btn-gray">电路异常</a></li>
+                                        <li><a class="fill-report-reason-btn-gray">发动机异常</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="fill-report-top clearfix">
+                                <p class=" fill-report-color-blue ">解决方案</p>
+                                <div  class="fill-report-solution clearfix">
+                                    <textarea></textarea>
+                                </div>
+                            </div>
+                    </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<ion-view view-title="协助记录" class="scroll-no">
+    <ion-nav-buttons side="right">
+        <a class="button button-icon icon " ng-click="deleteAssistRecord()">清空</a>
+    </ion-nav-buttons>
+    <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+        <div class="item item-divider item-bg scroll-content-fixed">
+            <div class="assi-bnt-height">
+                <span ng-click="helpMeClick()" ng-class="{'assi-span-text-style':helpMeSwitchNavigation}">协助我的</span>
+                <span ng-click="MyAssistanceClick()" ng-class="{'assi-span-text-style':MyAssistanceSwitchNavigation}">我的协助</span>
+            </div>
+        </div>
+    </div>
+    <!--<ion-content class="scroll-content-height"  assi-scroll-height="loadMore()" >-->
+    <ion-content class="scroll-content-height">
+        <ion-slide-box on-slide-changed="changePage(index)" show-pager=false>
+            <ion-slide >
+                <div class="list assist-record-list">
+                    <div class="noRecord" ng-if="hasAssistToMeRecord">暂未收到协助</div>
+                    <a class="item assist-icon-left" href="#" ng-repeat="assist in userList">
+                        来自<span class="assi-list-name-style">{{assist.user.nickName}}</span>专家的协助
+
+                        <span class="item-note">
+                            <p class="assi-is-evaluation">
+                                <evaluation-state state="1"></evaluation-state>
+                            </p>
+                         {{assist.updatetime|date:'yyyy-MM-dd'}}
+                        </span>
+                    </a>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="list assist-record-list">
+                    <div class="noRecord" ng-if="hasAssistFromMeRecord">暂无协助记录</div>
+                    <a class="item assist-icon-left" href="#" ng-repeat="toAssist in toAassistList">
+                        我协助了<font class="assi-list-name-style">{{toAssist.user.nickName}}</font>
+                        <span class="item-note">
+                         {{toAssist.updatetime|date:'yyyy-MM-dd'}}
+                        </span>
+                    </a>
+                </div>
+            </ion-slide  >
+        </ion-slide-box>
+        <ion-infinite-scroll
+                ng-if="moreDataCanBeLoaded"
+                distance="1%"
+                on-infinite="loadMoreData()">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

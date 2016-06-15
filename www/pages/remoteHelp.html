@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../iconfont/iconfont.css"/>
+
+
+</head>
+<body>
+
+
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="nav-bar-block " nav-bar="active">
+        <ion-header-bar class="bar-positive bar bar-header disable-user-behavior" align-title="center">
+            <button class="button back-button buttons  button-clear header-item">
+                <i class="iconfont icon-cha icon-cha-style"></i>
+                <span class="back-text"></span>
+            </button>
+            <div class="title title-center header-item">远程协助中。。。</div>
+
+            <button class="button back-button buttons  button-clear header-item">
+                <i class="iconfont icon-duihua icon-duihua-style"></i>
+
+            </button>
+        </ion-header-bar>
+    </div>
+</ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+
+        <div class="tab-nav tabs">
+            <div class="status-tipbox">
+                <span class="status-content">正在进行</span>
+                <span class="status-progress">50%</span>
+            </div>
+            <div class="status-bar-empty">
+                <div class="status-bar-filling"></div>
+            </div>
+
+        </div>
+
+
+        <ion-nav-view name="tab-diagnose " class="view-container tab-content" nav-view="active"
+                      nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Diagnose" hide-nav-bar="true" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class="scroll-content ionic-scroll has-tabs">
+
+                    <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+                        <div class="content has-header ionic-pseudo">
+
+                            <ul class="list remote-help-progress-tip" style="padding:17px 10px;">
+                                <li>远程连接成功</li>
+                                <li>设备启动完成</li>
+
+
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="scroll-bar scroll-bar-v">
+                        <div class="scroll-bar-indicator scroll-bar-fade-out"
+                             style="-webkit-transform: translate3d(0px, 0px, 0px) scaleY(1); height: 0px;"></div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+</body>
+</html>

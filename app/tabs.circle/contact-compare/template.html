@@ -1,0 +1,51 @@
+<ion-view view-title="通讯录朋友">
+    <ion-content class="item-bg">
+        <div class="list">
+            <div class="item-friends-box">
+                <label class="item-input find-item-input">
+                    <i class="iconfont icon-search placeholder-icon search-icon"></i>
+                    <input class="find-text" placeholder="手机号/昵称/姓名" type="text" ng-model="search.myCellPhoneFriend">
+                </label>
+            </div>
+        </div>
+        <p class="item-divider-empty"></p>
+
+        <ion-list>
+            <div ng-repeat="alphabeticalItem in alphabeticalList">
+                <p class="item-divider-empty letter-results-describe">{{alphabeticalItem.initial}}</p>
+                <ion-item class="item item-friends-head-portrait" ng-repeat="user in alphabeticalItem.friendList"
+                          ui-sref="tab.circle.user-detail({id: user.id})">
+                    <img ng-src="{{ user.icon | prefixSrc }}">
+                    <span class="badge friends-badge-level">J{{ user.grade }}</span>
+
+                    <h2 class="new-friend-nickname">{{ user.contactName }}</h2>
+
+                    <p>技师圈：{{ user.nickName }}</p>
+
+                    <p class="new-friends-state-right">
+                        <button ng-if="hasNoRelation(user)&&!user.isRegister" ng-click="applyFriend($event, user)"
+                                class="button new-friend-button-small button-stable">添加
+                        </button>
+                        <button ng-if="!user.relation&&user.isRegister" ng-click="inviteFriend($event, user)"
+                                class="button new-friend-button-small button-stable">邀请
+                        </button>
+                        <span ng-if="isApplied(user)" class="new-friend-state">等待验证</span>
+                        <span ng-if="isAccepted(user)" class="new-friend-state">已添加</span>
+                    </p>
+
+                    <!--<button ng-if="isApplied(user)" class="button-balanced"
+                                       ng-click="reApplyFriend($event, user)">
+                        添加
+                    </button>-->
+
+                   <!-- <ion-option-button class="button-assertive"
+                                       ng-click="removeApplyFriend($event, user)">
+                        取消
+                    </ion-option-button>-->
+                </ion-item>
+
+            </div>
+        </ion-list>
+    </ion-content>
+
+</ion-view>

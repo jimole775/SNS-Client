@@ -1,0 +1,25 @@
+<ion-modal-view>
+    <ion-content class="item-request-bg">
+        <div class="request-person-block">
+            <p class="request-prompt-text">向你请求远程协助...</p>
+            <div class="item-request-head-portrait">
+                <img class="request-head-portrait" ng-src="{{remoteMinor.icon}}">
+            </div>
+            <p class="request-nickname">{{remoteMinor.nickName}}</p>
+        </div>
+        <div class="request-accept-and-refused refused-padding-path clearfix">
+            <div class="request-refused-block">
+                <div class="item-request-refused-head-portrait" ng-click="refuseAssistance(remoteMinor.id)">
+                    <img class="request-accept-head-portrait" src="img/request-refused.png">
+                </div>
+                <p class="request-refused-text-describe">拒绝</p>
+            </div>
+            <div class="request-accept-block" ng-click="receivingRequest(remoteMinor.id)">
+                <div class="item-request-accept-head-portrait">
+                    <img class="request-accept-head-portrait" src="img/request-accept.png">
+                </div>
+                <p class="request-accept-text-describe">接受</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

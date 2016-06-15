@@ -1,0 +1,60 @@
+<ion-view view-title="查找技师" ng-view>
+
+    <ion-content class="item-bg">
+        <div class="list">
+            <div class="item-friends-box">
+                <label class="item-input find-item-input">
+                    <i class="iconfont icon-search placeholder-icon search-icon"></i>
+                    <input class="find-text" placeholder="请输入关键字" ng-model="filter.fuzzy"
+                           type="text"/>
+                </label>
+            </div>
+        </div>
+        <p class="item-divider-empty"></p>
+
+        <div class="list">
+            <div class="item-friends-box">
+                <!--<ion-item class="item item-action-head-portrait" ui-sref="tab.circle.friends">-->
+                    <!--&lt;!&ndash;<img src="img/js-add-friend.jpg">&ndash;&gt;-->
+                    <!--<span class="function-module-ion-block sameTechnician-function-independent-bg">-->
+                        <!--<i class="iconfont icon-Add-friends personal-ion function-module-ion"></i>-->
+                    <!--</span>-->
+                    <!--<p class="item-friends-description">同城技师</p>-->
+                <!--</ion-item>-->
+                <!--<ion-item class="item item-action-head-portrait" ui-sref="tab.circle.friends">-->
+                   <!--<span class="function-module-ion-block nearTechnician-function-independent-bg">-->
+                        <!--<i class="iconfont icon-navigation personal-ion function-module-ion"></i>-->
+                    <!--</span>-->
+
+                    <!--<p class="item-friends-description">附近技师</p>-->
+                <!--</ion-item>-->
+                <ion-item class="item item-action-head-portrait" ui-sref="tab.circle.find-filter">
+                   <span class="function-module-ion-block screening-function-independent-bg">
+                        <i class="iconfont icon-label personal-ion function-module-ion"></i>
+                    </span>
+                    <p class="item-friends-description">条件筛选</p>
+                </ion-item>
+            </div>
+        </div>
+        <p class="item-divider-empty search-results-describe">所有技师</p>
+
+        <div class="list">
+            <div class="item-friends-box">
+                <ion-item class="item item-friends-head-portrait" ng-repeat="user in userList"
+                   ui-sref="tab.circle.user-detail({id: user.id})">
+                    <img ng-src="{{ user.icon | prefixSrc }}">
+                    <!--<span class="badge friends-badge-level">J{{ user.grade }}</span>-->
+
+                    <p class="item-friends-description">{{ user.nickName }}</p>
+                </ion-item>
+            </div>
+        </div>
+        <p class="list-number" ng-if="allUserList.length==0&&userList.length>0">共{{userList.length}}个技师</p>
+        <ion-infinite-scroll
+                icon="ion-loading-d"
+                ng-if="moreDataCanBeLoaded"
+                distance="5%"
+                on-infinite="loadMoreData()">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

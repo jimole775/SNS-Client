@@ -1,0 +1,94 @@
+/*
+ * CCDP II HTML
+ * 2014-11-20 Edited.
+ */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+body{margin:0; font-family:"微软雅黑";}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,progress,video{display:inline-block;vertical-align:baseline}
+audio:not([controls]){display:none;height:0}
+[hidden],template{display:none}
+a{background:transparent; text-decoration:none;}
+a:active,a:hover{outline:0; text-decoration:none;}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+h1,h2,h3,h4,h5,h6,p{margin:0;padding:0;font-weight:lighter;}
+mark{color:#000;background:#ff0}
+small{font-size:80%}
+sub,sup{position:relative;font-size:75%;line-height:0;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:1em 40px}
+hr{height:0;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}
+pre{overflow:auto}
+code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}
+button,input,optgroup,select,textarea{margin:0;font:inherit;color:inherit}
+button{overflow:visible}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input{line-height:normal}
+input[type="checkbox"],input[type="radio"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}
+input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}
+input[type="search"]{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;-webkit-appearance:textfield}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+fieldset{padding:.35em .625em .75em;margin:0 2px;border:1px solid #c0c0c0}
+legend{padding:0;border:0}
+textarea{overflow:auto}
+optgroup{font-weight:bold}
+table{border-spacing:0;border-collapse:collapse}
+td,th{padding:0}
+ul,li,dl,dd,dt{margin:0; padding:0; list-style:none;}
+/*reset*/
+.hide{ display:none;}
+.title{ background-color:#0c2d51; color:#fff; position:fixed; top:0; width:100%; z-index:10; height:45px; overflow:hidden;}
+.title > h1{ line-height:45px; font-size:18px; text-align:center; width:70%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin:0 auto;}
+.back-btn{ background:url(../images/common/ccdp_backward.png) no-repeat center center; background-size:auto 20px; width:25px; height:45px;}
+.quit-btn{ background:url(../images/common/ccdp_del.png) no-repeat 0 center; background-size:21px; width:21px; height:45px;}
+.title > .back-btn,.title > .quit-btn{ position:absolute; left:5px; top:0; z-index:9;}
+.title > .quit-btn{ left:15px;}
+.linked{ background:url(../images/common/ccdp_car_linked.png) no-repeat 0 center; width:25px; height:45px; background-size: 25px; position:absolute; right:10px; top:0; z-index:9;}
+.unlink{ background:url(../images/common/ccdp_car_unlink.png) no-repeat 0 center; width:25px; height:45px; position:absolute; right:10px; top:0; z-index:9;}
+.main{ top:45px; z-index:1; width:100%;}
+.list li{ border-bottom:1px #ECF3F7 solid;}
+.list li a{ display:block; overflow:hidden; padding:20px; position:relative;}
+.list li a:hover{ background-color:#F4F9FB;}
+.logo-container{ width:55px; height:32px; overflow:hidden; display:inline-block; text-align:center;}
+.car-logo{ height:32px;}
+.next-btn{ background:url(../images/common/ccdp_forward.png) no-repeat center center; background-size:24px; display:inline-block; width:24px; height:26px;}
+.list li a > .logo-container,.list li a > h2{ float:left;}
+.list li a h2{ color:#8A8A8A; font-size:18px; margin-left:10px; line-height:30px;}
+.list li a > .next-container{ position:absolute; top:30%; right:15px; bottom:0; z-index:9}
+.attentions{ margin:30px;}
+.attentions h3,.attentions p{ color:#F00; font-size:20px; line-height:36px;}
+.attentions p{ text-indent:-1em; padding-left:1em;}
+.info{ margin:15px 15px 15px 35px;}
+.info li{ color:#666; list-style:circle; font-size:16px; line-height:26px;}
+
+.refashed{ background:url(../images/common/ccdp_reflash.png) no-repeat 0 center; background-size:25px; width:25px; height:45px; position:absolute; right:10px; top:0; z-index:9;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

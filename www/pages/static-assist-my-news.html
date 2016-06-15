@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Assist records</title>
+
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style></style>
+</head>
+<body>
+
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="nav-bar-block " nav-bar="active">
+        <ion-header-bar class="bar-positive bar bar-header disable-user-behavior" align-title="center">
+
+            <div class="title title-center header-item" >请求协助消息</div>
+
+        </ion-header-bar>
+    </div>
+</ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+        <ion-nav-view name="tab-chats" class="view-container tab-content" nav-view="active" nav-view-transition="ios"
+                      nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Ben Sparrow" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class=" scroll-content ionic-scroll  has-header  scroll-width ">
+                    <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+                        <div class="item item-divider item-bg">
+                            <div class="assit-my-news-inpt clearfix">
+                                <label class="item item-input authen-input">
+                                    <button type="button" class="assit-my-news-bnt-search"><i class="ion-ios-search-strong assit-my-news-search"></i></button>
+                                    <input type="text" placeholder="输入用户名">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="list">
+                        <label class="item item-radio">
+                            <input type="radio" name="group">
+                            <a href="#" class="">
+                                <div class="item-content text-black-color">
+                                    <font class="assit-my-news-num">1</font>
+                                    <span class="assit-my-news-avatar">
+                                        <img src="../img/avatar.jpg ">
+                                        <i class="assit-news-tips">1</i>
+                                    </span>
+                                    <span class="assit-my-news-name">XXX（用户名称）</span>
+                                    <i class="ion-male assit-my-news-sex"></i>
+                                </div>
+                            </a>
+                        </label>
+                        <label class="item item-radio">
+                            <input type="radio" name="group">
+                            <a href="#" class="">
+                                <div class="item-content text-black-color">
+                                    <font class="assit-my-news-num">2</font>
+                                    <span class="assit-my-news-avatar"><img src="../img/avatar.jpg "></span>
+                                    <span class="assit-my-news-name">XXX（用户名称）</span>
+                                    <i class="ion-male assit-my-news-sex"></i>
+                                </div>
+                            </a>
+                        </label>
+                        <label class="item item-radio">
+                            <input type="radio" name="group">
+                            <a href="#" class="">
+                                <div class="item-content text-black-color">
+                                    <font class="assit-my-news-num">3</font>
+                                    <span class="assit-my-news-avatar"><img src="../img/avatar.jpg "></span>
+                                    <span class="assit-my-news-name">XXX（用户名称）</span>
+                                    <i class="ion-male assit-my-news-sex"></i>
+                                </div>
+                            </a>
+                        </label>
+                        <label class="item item-radio">
+                            <input type="radio" name="group">
+                            <a href="#" class="">
+                                <div class="item-content text-black-color">
+                                    <font class="assit-my-news-num">4</font>
+                                    <span class="assit-my-news-avatar"><img src="../img/avatar.jpg "></span>
+                                    <span class="assit-my-news-name">XXX（用户名称）</span>
+                                    <i class="ion-male assit-my-news-sex"></i>
+                                </div>
+                            </a>
+                        </label>
+
+                    </div>
+
+                </ion-content>
+            </ion-view>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+
+
+</body>
+</html>

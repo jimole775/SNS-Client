@@ -1,0 +1,16 @@
+<ion-view view-title="品牌">
+    <ion-content class="item-bg">
+
+        <div ng-repeat="item in brandList">
+
+            <p class="item-divider-empty letter-results-describe">{{item.initial}}</p>
+            <div class="list pic-height" ng-repeat="brand in item.userList" ui-sref="tab.conversations.vehicleInformation-cars({brandId:brand.id})">
+                <a class="item item-avatar">
+                    <img ng-src="{{ brand.icon_ur | prefixSrc }}">
+
+                    <p class="">{{ brand.name }}</p>
+                </a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

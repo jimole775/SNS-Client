@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="nav-bar-block " nav-bar="active">
+        <ion-header-bar class="bar-positive bar bar-header disable-user-behavior" align-title="center">
+            <button class="button back-button buttons  button-clear header-item">
+                <i class="icon ion-ios-arrow-back"></i>
+                <span class="back-text"></span>
+            </button>
+            <div class="title title-center header-item">协助详情</div>
+        </ion-header-bar>
+    </div>
+</ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+        <ion-nav-view name="tab-chats" class="view-container tab-content" nav-view="active" nav-view-transition="ios"
+                      nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Ben Sparrow" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class="scroll-content ionic-scroll item-bg has-header">
+
+                    <div class="scroll item-bg" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+                        <p class="help-info-firs-item">
+                            编号：B20150120AM112420
+
+
+                        </p>
+                        <ul class="help-info-item">
+                            <li>
+                                <table class="help-info-car-info-table">
+                                    <tr>
+                                        <td><h4>车辆信息</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td>品牌：<i class="car-info-brand">宝马</i></td>
+                                        <td>车系：<i class="car-info-type">X5</i></td>
+                                        <td>年款：<i class="carInfo-year">2013</i></td>
+                                    </tr>
+                                </table>
+                            </li>
+
+                            <li><h4>原因</h4>发动机异常</li>
+
+                            <li><h4>解决方案</h4>皮带打滑，指导用户实地更换皮带</li>
+
+                        </ul>
+                        <button class="help-info-button">
+                            <span class="chat-in-row-back-text ">查看聊天记录</span>
+                            <i class="ion-chevron-right"></i>
+
+                        </button>
+                        <button class="help-info-button">
+                            <span class="chat-in-row-back-text ">查看诊断日志</span>
+                            <i class="ion-chevron-right"></i>
+
+                        </button>
+                    </div>
+
+                    <button class="tab-nav tabs helpInfo-bottom">我要评价</button>
+                </ion-content>
+            </ion-view>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+
+
+</body>
+</html>

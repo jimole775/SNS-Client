@@ -1,0 +1,13 @@
+<div class="tipbox" style="display:block;" on-touch="closePromptModal()"></div>
+<div class="tipbox-content " style="width:80%;">
+    <div class="change-name-content">
+        <h4 class="tipbox-title">删除联系人</h4>
+
+        <p>将联系人<span style="color: #157EFB">{{curremtName}}</span>删除</p>
+    </div>
+    <div class="button-bar individual-set-button-bar">
+        <a class="button chat-tipbox-button individual-set-button-cancel" href="#"
+           ng-click="closePromptModal()">取消</a>
+        <a class="button chat-tipbox-button individual-set-button-confirm" href="#" ng-click="removeApplyFriend(curremId)">确定</a>
+    </div>
+</div>

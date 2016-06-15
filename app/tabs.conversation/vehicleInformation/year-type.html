@@ -1,0 +1,16 @@
+<ion-view view-title="年款">
+    <ion-content>
+        <div class="list">
+
+            <!--  <div class="item item-divider">
+                  Candy Bars
+              </div-->
+
+            <a class="item" href="#" ng-repeat="yearType in yearTypeList"
+               ui-sref="tab.conversations.vehicle-fault({brandId:brandId,carsSeriesId:carsSeriesId,faultId:yearType.id})">
+                {{yearType.name}}
+            </a>
+
+        </div>
+    </ion-content>
+</ion-view>

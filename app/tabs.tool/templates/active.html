@@ -1,0 +1,86 @@
+<ion-view view-title="激活修车宝">
+    <ion-content class="car-padding-top scroll-content ionic-scroll  has-header has-tabs">
+        <div class="activate-text activate-text-color" >
+            <p>
+                请认真填写您的真实信息，当您的设备出现问题时，这些信息能帮助我们及时与您取得联系。
+            </p>
+        </div>
+        <form name="activeForm" novalidate ng-submit="sigupForm(activeForm.$error)">
+            <div>
+                <div class="activate-table-id">
+                    <span class="activate-title-name activate-left-style activate-text-color">姓&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+
+                    <div class="activate-right-style">
+                        <label class="item item-input activate-input-border activate-input90">
+                            <input  check-name class="" type="text" placeholder="1-4个中文" ng-model="active.name" ng-maxlength="4" ng-minlength="1" required name="name"/>
+                        </label>
+                        <font class="activate-red">*</font>
+                    </div>
+                    <div class="error" ng-messages="activeForm.name.$error" ng-if="isShowFormError">
+                        <div ng-message="required">请输入姓名</div>
+                        <div ng-message="evenNum">姓名限中文格式</div>
+                        <div ng-message="minlength">姓名字符太短(大于1位或小于4位)</div>
+                        <div ng-message="maxlength">姓名字符太长(大于1位或小于4位)</div>
+                    </div>
+                </div>
+                <div class="activate-table-id">
+                    <span class="activate-title-name activate-left-style activate-text-color">地&nbsp;&nbsp;&nbsp;&nbsp;址：</span>
+
+                    <div class="activate-right-style">
+                        <label class="item item-input activate-input-border activate-input90">
+                            <input  class="" type="text" placeholder="最多40个字" ng-model="active.address" ng-maxlength="40" required name="address"/>
+                        </label>
+                        <font class="activate-red">*</font>
+                    </div>
+                    <div class="error" ng-messages="activeForm.address.$error" ng-if="isShowFormError">
+                        <div ng-message="required">请输入地址</div>
+                        <div ng-message="maxlength">地址字符太长(小于40位)</div>
+                    </div>
+                </div>
+                <div class="activate-table-id">
+                    <span class="activate-title-name activate-left-style activate-text-color"> 联系方式：</span>
+
+                    <div class="activate-right-style">
+                        <label class="item item-input activate-input-border activate-input90">
+                            <input contact-information  class="" type="text" placeholder="输入有效的固定电话或手机号码" ng-model="active.mobilePhone" required name="mobilephone"/>
+                        </label>
+                        <font class="activate-red">*</font>
+                    </div>
+                    <div class="error" ng-messages="activeForm.mobilephone.$error" ng-if="isShowFormError">
+                        <div ng-message="required">请输入联系方式</div>
+                        <div ng-message="Contact">固定电话或者手机号码格式不正确</div>
+                    </div>
+                </div>
+                <div class="activate-table-id">
+                    <span class="activate-title-name activate-left-style activate-text-color">公司名称：</span>
+
+                    <div class="activate-right-style">
+                        <label class="item item-input activate-input-border activate-input90">
+                            <input  class="" type="text" placeholder="最多40个中文" ng-model="active.companyName" ng-maxlength="40" required name="company"/>
+                        </label>
+                        <font class="activate-red">*</font>
+                    </div>
+                    <div class="error" ng-messages="activeForm.company.$error" ng-if="isShowFormError">
+                        <div ng-message="required">请输入公司名称</div>
+                        <div ng-message="maxlength">公司名称字符太长(小于40位)</div>
+                    </div>
+                </div>
+                <div class="activate-table-id">
+                    <span class="activate-title-name activate-left-style activate-text-color">Q&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Q：</span>
+
+                    <div class="activate-right-style">
+                        <label class="item item-input activate-input-border activate-input90">
+                            <input qciq-format type="text" placeholder="4-11位数字，不能以0开头" name="Oicq"  ng-model="active.qicq"/>
+                        </label>
+                    </div>
+                    <div class="error" ng-messages="activeForm.Oicq.$error">
+                        <div ng-message="Format">QQ格式不正确</div>
+                    </div>
+                </div>
+            </div>
+            <div class="padding">
+                <input class="button button-padding button-block button-blue-color car-text-color" type="submit" value="提交"/>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

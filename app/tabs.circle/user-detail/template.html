@@ -1,0 +1,101 @@
+<ion-view view-title="好友详情" ng-view>
+    <ion-nav-buttons side="secondary">
+        <button class="button button-clear" ng-click="deleteFriend(user.id)" ng-show="user.relation===2">删除好友</button>
+    </ion-nav-buttons>
+    <ion-content class="has-footer item-bg">
+        <div class="hand">
+            <div class="hand-more">
+                <div class="hand-more-avatar">
+                    <div class="avatar-border-trans"></div>
+                    <img class="avatar-img" ng-src="{{ user.icon | prefixSrc }}">
+
+                    <div class="personal-class clearfix">
+                        <span>{{ user.grade }}级技师</span>
+                    </div>
+                </div>
+                <p class="personal-name">
+                    <span class="the-personal-name ellipsis">
+                        {{ user.nickName }}
+                        <span class="iconfont icon-man expert-icon-man" ng-show="user.sex===2"></span>
+                        <span class="iconfont icon-woman expert-icon-man" ng-show="user.sex===1"></span>
+                    </span>
+
+                </p>
+            </div>
+            <div class="hand-index">
+                <span class="hand-index-settlement">
+                    <i class="hand-index-value ellipsis">{{ user.resolvedCount }}</i>
+                    <em class="hand-index-title">解决数</em>
+                </span>
+                <span class="vertical-line"></span>
+                <span class="hand-index-popularity sentiment-location-block clearfix">
+                    <i class="hand-index-value ellipsis">{{ user.popularity }}</i>
+                    <em class="hand-index-title clearfix">人气</em>
+                </span>
+            </div>
+        </div>
+        <p class="item-divider-empty"></p>
+
+        <div class="content-expert">
+            <div class="list">
+                <ul class="item">
+                    擅长处理：
+                    <!--<img class="list-first-img" ng-repeat="brand in user.brandList"
+                         ng-src="{{ brand.icon | prefixSrc }}">-->
+                    <span class="list-first-description set-des-color">
+                     <ul class="clearfix">
+                         <img class="list-first-img" ng-repeat="brand in user.brandList"
+                              ng-src="{{ brand.icon | prefixSrc }}">
+                     </ul>
+                     </span>
+                </ul>
+                <ul class="item">
+                    服务项目：
+                <span class="list-first-description set-des-color">
+                     <ul class="clearfix">
+                         <li class="with-i" ng-repeat="project in user.serveList">
+                             {{ project.serveName }}
+                         </li>
+                     </ul>
+                </span>
+                </ul>
+                <ul class="item  description-white-space">
+                    服务介绍：
+                <span class="list-first-description set-des-color">
+                    <p>{{ user.description }}</p>
+                </span>
+                </ul>
+                <ul class="item">
+                    在线时间：
+                <span class="list-first-description set-text-desc-color">
+                    {{ user.serveStartTime }} - {{ user.serveEndTime }}
+                </span>
+                </ul>
+            </div>
+        </div>
+
+    </ion-content>
+    <ion-footer-bar class="clear-white-space" ng-if="user.relation===2">
+        <button ui-sref="tab.conversations.conversation.PRIVATE({targetId: user.id, conversationType: 'PRIVATE'})"
+                class="button button-full button-positive clear-white-space font-relation">发送信息
+        </button>
+    </ion-footer-bar>
+    <ion-footer-bar class="clear-white-space" ng-if="user.relation===1">
+        <button class="button button-full button-positive-relation clear-white-space font-relation">等待对方回应...</button>
+    </ion-footer-bar>
+    <ion-footer-bar class="clear-white-space" ng-if="user.relation===0||user.relation===3">
+        <button  ng-disabled="disabledNewFriend "  class="button button-full button-positive clear-white-space font-relation" ng-click="addMyFriend(user.id)">
+            加为好友
+        </button>
+    </ion-footer-bar>
+
+
+    <ion-footer-bar   class="clear-white-space" ng-if="user.relation===4">
+        <button ng-disabled="disabledNewFriend " class="button button-small button-assertive button-half" ng-click="refuse(user.id)">
+            拒绝
+        </button>
+        <button ng-disabled="disabledNewFriend " class="button button-large button-positive button-half" ng-click="acceptFriend(user.id)">
+            加为好友
+        </button>
+    </ion-footer-bar>
+</ion-view>

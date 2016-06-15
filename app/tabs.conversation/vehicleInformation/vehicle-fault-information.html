@@ -1,0 +1,15 @@
+<ion-view view-title="车辆故障信息">
+    <ion-content class="scroll-content ionic-scroll item-bg has-header">
+        <p class="information-title">请简述车辆主要故障，或车辆现状</p>
+        <form name="SolutionsText">
+            <div class="fill-report-solution clearfix">
+                <textarea ng-model="vehicleInformationObj.content" class="solution-textarea-text" required></textarea>
+            </div>
+        </form>
+    </ion-content>
+    <ion-footer-bar class="clear-white-space">
+        <button class="button button-full button-positive clear-white-space font-relation" ng-click="sendVehicleInformationMessage()">
+            确定
+        </button>
+    </ion-footer-bar>
+</ion-view>

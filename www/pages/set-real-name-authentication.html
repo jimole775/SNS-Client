@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="nav-bar-block " nav-bar="active">
+        <ion-header-bar class="bar-positive bar bar-header disable-user-behavior" align-title="center">
+            <button class="button back-button buttons  button-clear header-item">
+                <i class="icon ion-ios-arrow-back"></i>
+                <span class="back-text"></span>
+            </button>
+            <div class="title title-center header-item">实名认证</div>
+        </ion-header-bar>
+    </div>
+</ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+        <ion-nav-view name="tab-chats" class="view-container tab-content" nav-view="active" nav-view-transition="ios"
+                      nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Ben Sparrow" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class=" scroll-content ionic-scroll  has-header  scroll-width scroll-bg-color">
+                    <div class="authen-inp clearfix">
+                        <span>名字</span>
+                        <label class="item item-input authen-input">
+                            <input type="text">
+                        </label>
+                        <font class="activate-red">*</font>
+                    </div>
+                    <div class="authen-inp clearfix">
+                        <span>身份证号</span>
+                        <label class="item item-input authen-input">
+                            <input type="text">
+                        </label>
+                        <font class="activate-red">*</font>
+                    </div>
+                    <div class="authen-example clearfix">
+                        <div class="authen-example-click">
+                            <button><i class="ion-plus-round"></i></button>
+
+                            <span>点击上传（手持正面）</span>
+                        </div>
+                        <div class="authen-example-pic">
+                            <img src=" img/authenti-eg.jpg">
+                        </div>
+                    </div>
+                    <div class=" authen-example-top clearfix">
+                        <div class="authen-example-click">
+                            <button><i class="ion-plus-round"></i></button>
+                            <span>点击上传（手持反面）</span>
+                        </div>
+                        <div class="authen-example-pic">
+                            <img src=" img/authenti-eg.jpg">
+                        </div>
+                    </div>
+                    <div class="padding">
+                        <button class="button button-padding button-block button-blue-color car-text-color">确认</button>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+
+
+</body>
+</html>

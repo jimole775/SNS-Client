@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Test XMPP</title>
+</head>
+<body>
+
+<div>
+    <div>
+        <span>用户名：</span>
+        <input id="username" type="text" value="user@192.168.13.190"/>
+    </div>
+
+    <div>
+        <span>密码：</span>
+        <input id="password" type="password" value="user"/>
+    </div>
+
+    <div>
+        <button onclick="login(); return false;">登录</button>
+    </div>
+</div>
+
+<hr/>
+
+<div>
+    <textarea id="message"></textarea>
+    <button onclick="sendMessage();">发送消息</button>
+</div>
+
+<script>
+
+    function login() {
+        var username = document.querySelector('#username').value;
+        var password = document.querySelector('#password').value;
+
+        window.external.jsLogin(username, password);
+
+        return false;
+    }
+
+    function sendMessage() {
+        var message = document.querySelector('#message').value;
+
+        window.external.jsSendToXmpp('expert@192.168.13.190', message);
+    }
+
+    window.jsReceiveFromXmpp = function (from, nameForJID, message) {
+        console.log('from:', from);
+        console.log('nameForJID:', nameForJID);
+        console.log('message:', message);
+    };
+
+    window.onConnected = function () {
+        console.log('onConnected');
+    };
+
+    window.onDisConnected = function () {
+        console.log('onDisConnected');
+    };
+
+</script>
+</body>
+</html>

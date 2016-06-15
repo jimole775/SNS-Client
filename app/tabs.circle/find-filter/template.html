@@ -1,0 +1,126 @@
+<ion-view view-title="技师列表筛选">
+    <!--<ion-nav-bar class="bar-technician__circle">
+        <ion-nav-back-button></ion-nav-back-button>
+
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="stopConsult()">结束咨询</button>
+        </ion-nav-buttons>
+    </ion-nav-bar>-->
+    <ion-nav-buttons side="secondary">
+        <button class="button button-clear" ng-click="searchResult()">查找</button>
+    </ion-nav-buttons>
+    <ion-content class="item-bg">
+
+        <div class="search-filter-item">
+            <div class="item item-full-height" ng-click="showBrandModal()">
+
+                <span class="item-name"> 擅长品牌</span>
+
+                <a href="javascript:" class="item-note item-note-layout">
+                    <!--span ng-repeat="brand in brandList">{{ brand.id }}: {{ brand.isChecked}} || </span>-->
+
+                    <span class="item-note-has-text" ng-show="isShowNotChoice">
+                        未选择
+                    </span>
+
+
+                    <span class="item-note-has-text" ng-show="isShowSelectIcon">
+                        <img ng-repeat="brand in brandList | filter :{'isChecked':true}" width="17px"
+                             ng-src="{{brand.icon_ur | prefixSrc}}"
+                             alt="" class="brand-icon" ng-show="brand.isChecked && $index < 3"/>
+                    </span>
+
+                    <span class="more-and-more" ng-show="brandselected.length > 3">...</span>
+                    <i class="ion-chevron-right"></i>
+
+                </a>
+            </div>
+            <div class="list">
+                <div class="top-border-ex">
+                    <a class=" item item-icon-right" ng-click="showServiceModal()">
+                        擅长处理
+                <span class="list-first-description ">
+                    <ul class="clearfix">
+                        <li class="with-i" ng-repeat=" service in serviceList | filter :{'isChecked':true}"
+                            ng-show="service.isChecked && isShowSelectSerivce && $index < 3">
+                            {{service.name}}
+                        </li>
+                        <li class="with-i" ng-show="serviceSelected.length > 3">
+                            ...
+                        </li>
+                    </ul>
+                 </span>
+                        <span class="no-choose-text" ng-show="isShowNotChoiceService">未选择</span>
+                        <i class="icon ion-chevron-right ion-good-chevron-style"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="search-filter-item">
+            <div class="item item-full-height" ng-click="showPraiseModal()">
+
+                <span class="item-name">专家等级</span>
+
+                <a href="javascript:" class="item-note">
+                    <span class="item-note-has-text" ng-show="selectedPraiseId==null">
+                        未选择
+                    </span>
+                    <span class="item-note-has-text" ng-show="selectedPraiseId>0">
+                        {{selectedPraisename}}
+                    </span>
+                    <i class="ion-chevron-right"></i>
+                </a>
+
+            </div>
+            <div class="item item-full-height">
+                <span class="item-name">专家好评</span>
+
+                <a href="#" class="item-note">
+                    <span class="item-note-has-text">
+                        &gt;80%
+                    </span>
+                    <i class="ion-chevron-right"></i>
+
+                </a>
+
+            </div>
+        </div>
+
+        <div class="search-filter-item">
+            <div class="item item-full-height">
+                <span class="item-name">距离</span>
+
+                <a href="#" class="item-note">
+                    <span class="item-note-has-text">
+                       不限
+                    </span>
+                    <i class="ion-chevron-right"></i>
+
+                </a>
+
+            </div>
+            <div class="item item-full-height" ng-click="showOnlineModal()">
+                <span class="item-name">是否在线</span>
+
+                <a href="#" class="item-note">
+                    <span class="item-note-has-text" ng-show="onLineId===null&&onLineId!=1||0">
+                       未选择
+                    </span>
+                    <span class="item-note-has-text" ng-show="onLineId==1">
+                       {{isOnLineState}}
+                    </span>
+                    <span class="item-note-has-text" ng-show="onLineId==0">
+                       {{isOnLineState}}
+                    </span>
+                    <i class="ion-chevron-right"></i>
+
+                </a>
+
+            </div>
+        </div>
+
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,272 @@
+<ion-view adjust-bottom-by="currentStatus" view-title="{{minor.nickName}}">
+    <ion-nav-bar class="bar-technician__circle">
+        <ion-nav-buttons side="left">
+            <!--<button class="button button-clear" ui-sref="tab.conversations.conversation-list">-->
+            <button class="button button-clear" ng-click="__goToViewAsTop('tab.conversations.conversation-list')">
+                <i class="iconfont icon-return return-size-pop"></i>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content class="chatBg" data-perspect="minor" ng-click="handleClickConversationArea()">
+        <!--对话界面-->
+        <ul class="chat-box">
+
+            <!--显示时间-->
+            <!--<li class="chat-now-date">
+                    <span class="chat-now-date-bg">
+                        <i class="chat-date">2015-1-20</i>
+                        <i class="chat-time">14:26:20</i>
+                    </span>
+            </li>-->
+
+            <li ng-repeat="message in messageList">
+                <div style="text-align: center;">
+                    <div class="chatTime" ng-if="message.messageDirection === 'SEND'">{{message.sentTime}}</div>
+                    <div class="chatTime" ng-if="message.messageDirection === 'RECEIVE'">{{message.sentTime}}</div>
+                </div>
+                <div ng-if="message.objectName === 'RC:TxtMsg'"
+                     ng-class="{
+                        'chat-box-right': message.messageDirection == 'SEND',
+                        'chat-box-left': message.messageDirection == 'RECEIVE'
+                    }">
+
+                    <img ng-src="{{ majorUser.icon | prefixSrc }}"
+                         ng-if="message.messageDirection === 'SEND'">
+                    <img ng-src="{{ minor.icon | prefixSrc }}"
+                         ng-if="message.messageDirection === 'RECEIVE'">
+
+                    <p class="chat-content">
+                        {{ message.content.content }}
+                    </p>
+                </div>
+
+                <div ng-if="message.objectName === 'RC:VcMsg'"
+                     ng-class="{
+                        'chat-box-right': message.messageDirection == 'SEND',
+                        'chat-box-left': message.messageDirection == 'RECEIVE'
+                    }">
+
+                    <img src="img/engineer-Zhao.png" ng-src="{{ majorUser.icon | prefixSrc }}"
+                         ng-if="message.messageDirection === 'SEND'">
+                    <img src="img/engineer-Zhao.png" ng-src="{{ minor.icon | prefixSrc }}"
+                         ng-if="message.messageDirection === 'RECEIVE'">
+
+                    <p class="chat-content" ng-click="playVoice(message)">
+                        <i class="iconfont icon-voice3 icon-voice-wave"></i>
+                    </p>
+                    <i class="chat-content-voice-time">{{ message.content.mDuration | formatSecond }}"</i>
+                </div>
+
+                <div ng-if="message.objectName === 'RC:ImgMsg'"
+                     ng-class="{
+                        'chat-box-right': message.messageDirection == 'SEND',
+                        'chat-box-left': message.messageDirection == 'RECEIVE'
+                    }">
+                    <img src="img/engineer-Zhao.png" ng-src="{{ majorUser.icon | prefixSrc }}"
+                         ng-if="message.messageDirection === 'SEND'">
+                    <img src="img/engineer-Zhao.png" ng-src="{{ minor.icon | prefixSrc }}"
+                         ng-if="message.messageDirection === 'RECEIVE'">
+                    <p class="chat-content" ng-click="checkImg(message)">
+                        <img ng-src="{{ message.content.localUriString}}" >
+                    </p>
+                </div>
+                <!--文件处理部分-->
+                <div ng-if="message.objectName === 'App:FileMsg'"
+                                     ng-class="{
+                                        'chat-box-right': message.messageDirection == 'SEND',
+                                        'chat-box-left': message.messageDirection == 'RECEIVE'
+                                    }">
+                                    <img src="img/engineer-Zhao.png" ng-src="{{ majorUser.icon | prefixSrc }}"
+                                         ng-if="message.messageDirection === 'SEND'">
+                                    <img src="img/engineer-Zhao.png" ng-src="{{ minor.icon | prefixSrc }}"
+                                         ng-if="message.messageDirection === 'RECEIVE'">
+                                    <p class="chat-content" ng-click="downFilesClick(message)">
+
+                                        <img src="img/wenjain.png" class="fileImg" >
+                                       <span class="fileInfo">
+                                           <span class="fileName">{{message.content.fileName}}</span>
+                                            <span class="fileSize">size</span>
+                                       </span>
+                                        <span style="display: block; font-size: 12px;" ng-if="message.messageDirection === 'SEND'">发送成功</span>
+                                        <!--<span style="display: block">未下载</span>-->
+                                    </p>
+                                </div>
+
+
+            </li>
+
+            <!--<li>
+                <div class="chat-box-left">
+                    <img src="img/engineer-Zhao.png">
+
+                    <p class="chat-content">
+                        你好大街上电话卡说得好
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <div class="chat-box-left">
+                    <img src="img/engineer-Zhao.png">
+
+                    <p class="chat-content">
+                        <i class="iconfont icon-voice3 icon-voice-wave"></i>
+                    </p>
+                    <i class="chat-content-voice-time voice-unread">28"</i>&lt;!&ndash;voice-play-read&ndash;&gt;
+
+                </div>
+            </li>
+
+            <li>
+                <div class="chat-box-right">
+                    <img src="img/engineer-Zhao.png">
+
+                    <p class="chat-content">
+                        <i class="iconfont icon-voice3 icon-voice-wave"></i>
+                    </p>
+                    <i class="chat-content-voice-time  voice-read">56"</i>&lt;!&ndash;voice-play-unread&ndash;&gt;
+
+                </div>
+            </li>
+
+            <li>
+                <div class="chat-box-right">
+                    <img src="img/engineer-Zhao.png">
+
+                    <p class="chat-content">
+                        你好大街上电话卡说得好dawd2第五大阿二份
+                        大概规范嘎时断时续出asdasdadasdasdasdasdasdaddawdawdawdawdawdawdasssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <div class="chat-box-right">
+                    <p class="chat-content">
+                        <video class="chat-content-video">
+                            <i class="ion-android-arrow-dropright-circle default-icon-style"></i>
+                        </video>
+                    </p>
+                    <img src="img/engineer-Zhao.png">
+                </div>
+            </li>
+            <li class="clear"></li>-->
+        </ul>
+
+
+    </ion-content>
+
+    <!-----------------底部按钮-------------------->
+    <div data-perspect="major" class="feature-tabs">
+        <ul class="enter-form" form-text-focus="formTextFocus">
+            <li class="enter-form-left">
+                <i class="default-icon-style ion-android-apps add-button"
+                   ng-show="
+                                currentStatus == status.waitForRecord ||
+                                currentStatus == status.recording
+                            "
+                   ng-click="switchStatusTo(status.typing);"></i>
+
+                <i class="default-icon-style ion-mic-a add-button"
+                   ng-show="
+                                currentStatus == status.typing ||
+                                currentStatus == status.showingSelectFeatures
+                            "
+                   ng-click="switchStatusTo(status.waitForRecord);"></i>
+            </li>
+            <li class="enter-form-mid">
+                <input type="text" class="item-input chat-input"
+                       ng-click="switchStatusTo(status.typing);"
+                       ng-model="form.text"
+                       ng-show="
+                                currentStatus == status.typing ||
+                                currentStatus == status.showingSelectFeatures
+                              ">
+                <button class="button keep-press-say-button"
+                        ng-show="
+                            currentStatus == status.waitForRecord ||
+                            currentStatus == status.recording
+                        "
+                        ng-click="handleRecord()"
+                        >
+                    <span ng-if="currentStatus == status.waitForRecord">按住&nbsp;说话</span>
+                    <span ng-if="currentStatus == status.recording">松开&nbsp;结束</span>
+                </button>
+            </li>
+            <li class="enter-form-right">
+                <i class="default-icon-style chat-send-btn add-button"
+                   ng-show="
+                        currentStatus == status.typing &&
+                        form.text.length > 0
+                   "
+                   ng-click="sendMessage();">发送</i>
+
+                <i class="default-icon-style ion-ios-plus-outline add-button"
+                   ng-show="
+                        (currentStatus == status.typing && form.text.length <= 0) ||
+                        currentStatus == status.waitForRecord ||
+                        currentStatus == status.showingSelectFeatures ||
+                        currentStatus == status.recording
+                   "
+                   ng-click="switchStatusTo(status.showingSelectFeatures);"></i>
+            </li>
+        </ul>
+        <!--//底部显示远程协助等按钮-->
+       <ul class="feature-tabs-list" ng-show="currentStatus == status.showingSelectFeatures" chat-menu>
+           <li>
+               <a ng-click="handleShowRequestRemoteAssistance()"><i
+                       class="iconfont icon-zaixianxiezhu feature-zaixianxiezhu"></i>
+                   <p>请求协助</p></a>
+
+           </li>
+             <li>
+                 <a href="" ui-sref="tab.conversations.vehicleInformation({targetId:targetId,conversationType:conversationType})"><i class="iconfont icon-cheliangxinxi feature-cheliangxinxi"></i>
+
+                     <p>车辆信息</p></a>
+
+             </li>
+             <li>
+                 <a href="" ng-click="APP2PCRequestRemoteAssistance()"><i
+                         class="iconfont icon-shipin feature-APP2PC"></i>
+
+                     <p> 链接PC</p></a>
+
+             </li>
+           <li>
+               <a ng-click="sendPicClick()">
+                   <i class="iconfont icon-tupian feature-tupian"></i>
+                   <p>图片</p>
+               </a>
+           </li>
+           <li>
+               <a ng-click="sendFilesClick()">
+                   <i class="iconfont icon-tupian feature-wenjian"></i>
+                   <p>文件</p>
+               </a>
+           </li>
+             <!--
+             <li>
+                 <a href=""><i class="iconfont icon-shipin feature-shipin"></i>
+
+                     <p>视频</p></a>
+             </li>
+             <li>
+                 <a href=""><i class="iconfont icon-jiancebaogao feature-jiancebaogao"></i>
+
+                     <p>检测报告</p></a>
+
+             </li>
+
+             <li>
+                 <a href=""><i class="iconfont icon-ditu feature-ditu"></i>
+
+                     <p>位置</p></a>
+             </li>-->
+
+             <li class="clear">
+
+             </li>
+         </ul>
+    </div>
+
+</ion-view>

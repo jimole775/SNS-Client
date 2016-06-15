@@ -1,0 +1,76 @@
+<ion-view view-title="消息">
+    <ion-nav-buttons side="secondary">
+        <button class="button button-clear" ng-click="showOrHideSearch()"><i class="iconfont icon-search menu-size"></i>
+        </button>
+        <span class="button-clear-ionic"></span>
+        <button class="button button-clear" ng-click="showMenuModal()"><i class="iconfont icon-add menu-size"></i></button>
+    </ion-nav-buttons>
+
+    <ion-content class="item-bg">
+        <div ng-if="isShowSearch">
+            <p class="item-divider-empty"></p>
+
+            <div class="bar bar-header item-input-inset">
+                <label class="item-input-wrapper">
+                    <i class="iconfont icon-search placeholder-icon"></i>
+                    <input type="search" ng-model="search.keyword" placeholder="请输入关键字">
+                </label>
+                <button class="button button-clear" ng-click="showOrHideSearch()">
+                    取消
+                </button>
+            </div>
+
+            <p class="item-divider-empty"></p>
+        </div>
+
+        <ion-list ng-show="isShowConversationList">
+            <ion-item class="item item-avatar message-item-a"
+                      ng-repeat="conversation in conversationList"
+                      ui-sref="{{ 'tab.conversations.conversation.' + conversation.conversationType + '({targetId: conversation.targetId, conversationType: conversation.conversationType})' }}">
+
+                <img class="message-item-img"  ng-src="{{ conversation.__detail__.icon | prefixSrc }}">
+
+                <!--<span class="badge message-badge-level">J{{ conversation.__detail__.grade }}</span>-->
+                <span class="badge message-badge-assertive" ng-if="conversation.unreadMessageCount > 0">{{ conversation.unreadMessageCount }}</span>
+
+                <h2 ng-if="conversation.conversationType === 'PRIVATE'">{{ conversation.__detail__.nickName }}</h2>
+
+                <h2 ng-if="conversation.conversationType === 'GROUP'">{{ conversation.__detail__.groupName }}</h2>
+
+                <p ng-if="conversation.objectName === 'RC:TxtMsg'">{{ conversation.latestMessage.content}}</p>
+
+                <p ng-if="conversation.objectName === 'RC:VcMsg'">[语音]</p>
+
+                <p ng-if="conversation.objectName === 'RC:ImgMsg'">[图片]</p>
+
+                <p ng-if="conversation.objectName === 'App:FileMsg'">[文件]</p>
+                <div class="message-search-results-time">
+                    <span class="new-friend-state">{{conversation.receivedTime}}</span>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <ion-list ng-show="isShowSearchConversationList">
+            <ion-item class="item item-avatar message-item-a"
+                      ng-repeat="conversation in searchConversationList"
+                      ui-sref="{{ 'tab.conversations.conversation.' + conversation.conversationType + '({targetId: conversation.targetId, conversationType: conversation.conversationType})' }}">
+
+                <img class="message-item-img"  ng-src="{{ conversation.__detail__.icon | prefixSrc }}">
+
+                <!--<span class="badge message-badge-level">J{{ conversation.__detail__.grade }}</span>-->
+                <span class="badge message-badge-assertive" ng-if="conversation.unreadMessageCount > 0">{{ conversation.unreadMessageCount }}</span>
+
+                <h2 ng-if="conversation.conversationType === 'PRIVATE'">{{ conversation.__detail__.nickName }}</h2>
+
+                <h2 ng-if="conversation.conversationType === 'GROUP'">{{ conversation.__detail__.name }}</h2>
+
+                <p style="color: #E87870;">{{ conversation.searchContent }}</p>
+
+                <div class="message-search-results-time">
+                    <span class="new-friend-state">{{conversation.receivedTime}}</span>
+                </div>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

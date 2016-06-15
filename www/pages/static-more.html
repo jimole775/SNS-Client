@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>More</title>
+
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link  href="iconfont/css/iconfont.css" rel="stylesheet">
+
+
+</head>
+<body>
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="bar bar-header bar-color">
+        <button class="button back-button buttons  button-clear header-item">
+            <i class="icon ion-ios-arrow-back inc-btn-color"></i>
+            <span class="back-text"></span>
+        </button>
+        <h1 class="title-size title">更多</h1>
+    </div>
+
+</ion-nav-bar>
+
+
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+        <ion-nav-view name="tab-chats" class="view-container tab-content" nav-view="active" nav-view-transition="ios"
+                      nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Ben Sparrow" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class=" scroll-content ionic-scroll  has-header  scroll-width scroll-bg-color">
+
+                    <div class="split-personal">
+                        <div class="split-personal-mine">
+                            <label class="item item-radio">
+                                <input type="radio" name="group">
+                                <a href="#" class="">
+                                    <div class="item-content text-black-color ">
+                                        <div class="hand-more-avatar-more">
+                                            <img class="avatar-img-more" src="../img/top-avatar-not.jpg">
+                                        </div>
+                                        <div class="text-more-loging">
+                                            一键登录
+                                            <i class="ion-ios-arrow-forward car-ion-property"></i>
+                                        </div>
+
+                                    </div>
+                                </a>
+                            </label>
+                            <label class="item item-radio">
+                                <input type="radio" name="group">
+                                <a href="#" class="">
+                                    <div class="item-content text-black-color">
+                                        <i class="iconfont icon-message-ask personal-ion"></i>
+                                        我的消息
+                                        <i class="ion-ios-arrow-forward car-ion-property"></i>
+
+                                    </div>
+                                </a>
+                            </label>
+                            <label class="item item-radio">
+                                <input type="radio" name="group">
+                                <a href="#" class="">
+                                    <div class="item-content text-black-color ">
+                                        <i class="ion-android-star-outline personal-ion"></i>
+                                        我的关注
+                                        <i class="ion-ios-arrow-forward car-ion-property"></i>
+                                    </div>
+                                </a>
+                            </label>
+                        </div>
+                        <div class="split-personal-other">
+                            <label class="item item-radio">
+                                <input type="radio" name="group">
+                                <a href="#" class="">
+                                    <div class="item-content text-black-color">
+                                        <i class="ion-android-list personal-ion "></i>
+                                        协助记录
+                                        <i class="ion-ios-arrow-forward car-ion-property"></i>
+
+                                    </div>
+                                </a>
+                            </label>
+                            <label class="item item-radio">
+                                <input type="radio" name="group">
+                                <a href="#" class="">
+                                    <div class="item-content text-black-color ">
+                                        <i class="ion-ios-chatboxes-outline personal-ion"></i>
+                                        咨询记录
+                                        <i class="ion-ios-arrow-forward car-ion-property"></i>
+
+                                    </div>
+                                </a>
+                            </label>
+                        </div>
+                    </div>
+                    </div>
+
+                </ion-content>
+            </ion-view>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<ion-view view-title="技师圈" ng-view>
+    <ion-content class="item-bg">
+        <div class="list">
+            <div class="item-friends-box">
+                <label class="item-input find-item-input">
+                    <i class="iconfont icon-search placeholder-icon search-icon"></i>
+                    <input type="text" class="find-text" placeholder="查找好友" ng-model="form.condition">
+                </label>
+            </div>
+        </div>
+        <p class="item-divider-empty"></p>
+
+        <div class="list">
+            <div class="item-friends-box">
+                <!--添加好友没开发完暂时屏蔽-->
+                <ion-item class="item item-action-head-portrait" ng-click="viewNewFriendClick()" ui-sref="tab.circle.new-friends">
+                    <!--<img src="img/js-add-friend.jpg">-->
+                    <span class="function-module-ion-block new-friend-function-independent-bg">
+                        <i class="iconfont icon-Add-friends personal-ion function-module-ion"></i>
+                    </span>
+                    <span class="friends-message-location" ng-show="newFirends.friendApplyCount>0">{{newFirends.friendApplyCount}}</span>
+                    <p class="item-friends-description">新的朋友</p>
+                </ion-item>
+                <ion-item class="item item-action-head-portrait" ui-sref="tab.circle.groups">
+                    <span class="function-module-ion-block group-function-independent-bg">
+                        <i class="iconfont icon-friends personal-ion function-module-ion"></i>
+                    </span>
+                    <!--<span class="friends-badge-message">3</span>-->
+
+                    <p class="item-friends-description">群聊</p>
+                </ion-item>
+                <ion-item class="item item-action-head-portrait" ui-sref="tab.circle.find">
+                     <span class="function-module-ion-block search-function-independent-bg">
+                        <i class="iconfont icon-Search-friends personal-ion function-module-ion"></i>
+                    </span>
+
+                    <p class="item-friends-description">查找技师</p>
+                </ion-item>
+            </div>
+        </div>
+        <div style="background-color: #0000fe" ng-if="showTheMessage">
+            <p>您目前还没有好友,请在查找技师添加好友</p>
+        </div>
+        <div ng-repeat="userGroup in userList track by $index">
+            <p class="item-divider-empty letter-results-describe">{{userGroup.initial}}</p>
+
+            <div class="list">
+                <div class="item-friends-box">
+                    <ion-item class="item item-friends-head-portrait" ng-repeat="user in userGroup.userList"
+                              ui-sref="tab.circle.user-detail({id: user.id})">
+                        <img ng-src="{{ user.icon | prefixSrc }}">
+                        <!--<span class="badge friends-badge-level">J{{user.grade}}</span>-->
+
+                        <p class="item-friends-description">{{user.nickName}}</p>
+                    </ion-item>
+                </div>
+            </div>
+        </div>
+        <p class="list-number" ng-if="userListCount.length > 0">{{userListCount.length}}个联系好友</p>
+    </ion-content>
+
+</ion-view>

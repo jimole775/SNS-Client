@@ -1,0 +1,186 @@
+*{padding:0px;margin:0px;color:#666; font-family:"微软雅黑";box-sizing: border-box;}
+body{
+    font-size:100%;
+}
+a{
+    text-decoration: none;
+    color:#666;
+}
+ul{
+    list-style-type: none;
+}
+.top{
+    z-index:9;
+    position:fixed;
+    width: 100%;
+}
+#head{
+    line-height:2.4em;
+    position:relative;
+    height:2.4em;
+    background:#1A385A;
+    font-size:0.8rem;
+    color:#fff;
+    width:100%;
+    text-align: center;
+}
+#head span{
+    background: none;
+    display:inline-block;
+}
+#head .title{
+    width: 70%;
+    color:#fff;
+}
+#head a{
+    position:absolute;
+    color:#fff;
+    display: inline-block;
+    height:100%;
+    width: 15%;
+}
+#head .left{
+    background-image: url('../images/common/ccdp_backward.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    left:0px;
+    background-size:auto 40%;
+}
+#head .right{
+    right:0;
+    background-image: url('../images/common/ccdp_reflash.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:auto 54%;
+}
+
+.diagnose_list{
+	line-height:3rem;
+}
+
+.diagnose_list .list_title{
+    font-family:"微软雅黑";
+    border-bottom:solid 1px #DBDBDB;
+    display: block;
+    width: 100%;
+    position: relative;
+    text-indent:3%;
+    font-weight: 500;
+    font-size:0.8rem;
+    background: #f0f0f0;
+    background: linear-gradient(top,#FDFDFD,#FAFBFD);
+    background: -webkit-linear-gradient(top,#FDFDFD,#FAFBFD);
+    background: -moz-linear-gradient(top,#FDFDFD,#FAFBFD);
+    background: -o-linear-gradient(top,#FDFDFD,#FAFBFD);
+    box-sizing: border-box;
+}
+.diagnose_list .list_title .small_img{
+    text-align: center;
+    line-height: 100%;
+    text-indent: 0;
+    width:20%;
+}
+.diagnose_list .list_title .small_img img{
+    margin:0 auto;
+    width: 80%;
+    max-width: 160px;
+    vertical-align: middle;
+}
+.diagnose_list .list_title span{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.main_context_span{
+	width: 65%;
+	overflow:hidden;
+}
+
+.diagnose_list .list_title i{
+    color:#EDA577;
+    font-style: normal;
+    margin-left:0.3em;
+}
+.list_title .contentShow_btn{
+    position: absolute;
+    dispaly:block;
+    height:100%;
+    width: 10%;
+    top:0px;
+    right:10px;
+}
+.iconDown{
+    background-image: url("../images/common/ccdpForwardDown.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:40%;
+}
+.iconUp{
+    background-image: url("../images/common/ccdpForwardUp.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:40%;
+}
+.content{
+    border-bottom:solid 1px #DBDBDB;
+}
+.content .img_content{
+    text-align: center;
+    width: 100%;
+}
+.diagnose_list:last-child .content{
+    border-bottom:none;
+}
+.content .img_content img{
+    width: auto;
+    max-width: 95%;
+    margin: 10px auto 0 auto;
+}
+.content .text_content{
+    text-indent: 2em;
+    line-height:1.6em;
+    letter-spacing: 0.1em;
+    color:#999;
+    margin:25px 5%;
+    font-size:0.5rem;
+}
+.color-red{
+    color:red;
+}
+.moreDetail{
+    font-family: '微软雅黑';
+    font-size:0.7rem;
+    line-height:1.6em;
+    padding:30px 5%;
+}
+.bottom-button{
+    display: block;
+    background: #477cB3;
+    color:#fff;
+    font-size:0.7rem;
+    line-height:3.2em;
+    width:94%;
+    border:none;
+    outline:none;
+    border-radius: 6px;
+    margin:0 auto;
+	text-align: center;
+}
+.main {
+	padding-bottom:3rem;
+    z-index: 1;
+    overflow:hidden;
+    position:absolute;
+    width: 100%;
+	margin-top: 1.9em;
+}
+.bottom-container{
+	padding:0.2em 0;
+    position: fixed;
+    background: #fff;
+    bottom:0;
+    width: 100%;
+}
+.moreDetail{
+    height:100%;
+}

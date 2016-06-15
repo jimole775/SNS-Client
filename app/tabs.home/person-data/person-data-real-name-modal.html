@@ -1,0 +1,51 @@
+<ion-view view-title="实名认证">
+    <ion-content class=" scroll-content ionic-scroll  has-header  scroll-width scroll-bg-color">
+        <form role="form" name="modelForm" novalidate>
+            <div class="authen-inp clearfix">
+                <span>名字</span>
+                <label class="item item-input authen-input">
+                    <input type="text"  ng-model="userData.trueName" name="trueName" ng-pattern="/^([\u4e00-\u9fa5]{1,20}|[a-zA-Z\.\s]{1,20})$/" required>
+                </label>
+                <font class="activate-red">*</font>
+            </div>
+            <div class="error" ng-messages="modelForm.trueName.$error">
+                <span class="per-name-error" ng-message="required">请输入真实姓名</span>
+                <span class="per-name-error" ng-message="pattern">请输入正确的姓名</span>
+            </div>
+            <div class="authen-inp clearfix">
+                <span>身份证号</span>
+                <label class="item item-input authen-input" required>
+                    <input type="text" ng-model="userData.idNumber" name="idNumber" required>
+                </label>
+                <font class="activate-red">*</font>
+            </div>
+            <div class="error" ng-messages="modelForm.idNumber.$error">
+                <span class="per-name-error" ng-message="required">请输入身份证号</span>
+            </div>
+            <div class="authen-example clearfix">
+                <div class="authen-example-click" ng-click="positiveClick()">
+                    <button><i class="ion-plus-round"></i></button>
+
+                    <span>点击上传(手持正面)</span>
+                </div>
+                <div class="authen-example-pic">
+                    <img src=" img/posiPhotoPath.png" ng-show="posiPhotoPath=='' ">
+                    <img ng-src="{{posiPhotoPath | prefixSrc}}" ng-show="posiPhotoPath !=='' ">
+                </div>
+            </div>
+            <div class=" authen-example-top clearfix">
+                <div class="authen-example-click" ng-click="reverseSideClick()">
+                    <button><i class="ion-plus-round"></i></button>
+                    <span>点击上传(手持反面)</span>
+                </div>
+                <div class="authen-example-pic">
+                    <img src=" img/reveSidePhotoPath.jpg" ng-show="reveSidePhotoPath=='' ">
+                    <img ng-src="{{reveSidePhotoPath | prefixSrc}}" ng-show="reveSidePhotoPath !=='' ">
+                </div>
+            </div>
+            <div class="padding">
+                <input type="submit" value="确认" class="button button-padding button-block button-blue-color car-text-color" ng-click="submitResult()" >
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

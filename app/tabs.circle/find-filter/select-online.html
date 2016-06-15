@@ -1,0 +1,32 @@
+<ion-view>
+    <ion-header-bar class="bar-technician__circle">
+        <h1 class="title">请选择是否在线</h1>
+    </ion-header-bar>
+    <ion-content class="item-bg">
+        <div class="list">
+            <div class="item-friends-box">
+                <div class="group-chat-block remove-top-bottom-border">
+                    <div class="remove-bottom-border">
+                        <ion-item class="item item-friends-head-portrait" ng-click="isOnLine(id=null)">
+                            <p class="item-friends-description">不选</p>
+                        </ion-item>
+                    </div>
+                </div>
+                <div class="group-chat-block remove-top-bottom-border">
+                    <div class="remove-bottom-border ">
+                        <ion-item class="item item-friends-head-portrait" ng-click="isOnLine(id=1)">
+                            <p class="item-friends-description">{{onLineState}}</p>
+                        </ion-item>
+                    </div>
+                </div>
+                <div class="group-chat-block remove-top-bottom-border">
+                    <div class="remove-bottom-border">
+                        <ion-item class="item item-friends-head-portrait" ng-click="isOnLine(id=0)">
+                            <p class="item-friends-description">{{notOnLineState}}</p>
+                        </ion-item>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

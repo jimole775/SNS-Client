@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link rel="stylesheet" href="../iconfont/iconfont.css"/>
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="nav-bar-block " nav-bar="active">
+        <ion-header-bar class="bar-positive bar bar-header disable-user-behavior" align-title="center">
+            <button class="button back-button buttons  button-clear header-item">
+                <i class="icon ion-ios-arrow-back"></i>
+                <span class="back-text"></span>
+            </button>
+            <div class="title title-center header-item">专家协助</div>
+
+            <button class="button back-button buttons  button-clear header-item"><i
+                    class="ion-ios-search-strong engineer-search"></i></button>
+
+        </ion-header-bar>
+        <div class="tipbox-top"></div>
+    </div>
+</ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+
+        <div class="tab-nav tabs">
+
+            <ion-tab icon-off="ion-ios-pulse" icon-on="ion-ios-pulse-strong" href="#/tab/diagnose"></ion-tab>
+
+            <ion-tab icon-off="ion-ios-chatboxes-outline" icon-on="ion-ios-chatboxes" href="#/tab/assistance"></ion-tab>
+
+            <ion-tab icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/ask"></ion-tab>
+
+            <ion-tab icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/more"></ion-tab>
+
+            <a ng-class="{'tab-item-active': isTabActive(), 'has-badge':badge, 'tab-hidden':isHidden()}"
+               ng-disabled="disabled()" class="tab-item tab-item-active" icon-on="ion-ios-pulse-strong"
+               icon-off="ion-ios-pulse"><!-- ngIf: badge --><!-- ngIf: getIconOn() && isTabActive() --><i
+                    class="icon ion-ios-pulse-strong" ng-if="getIconOn() &amp;&amp; isTabActive()"></i><!-- end ngIf: getIconOn() && isTabActive() -->
+                <!-- ngIf: getIconOff() && !isTabActive() --><span class="tab-title ng-binding"
+                                                                   ng-bind-html="title">工具</span></a><a
+                ng-class="{'tab-item-active': isTabActive(), 'has-badge':badge, 'tab-hidden':isHidden()}"
+                ng-disabled="disabled()" class="tab-item" icon-on="ion-ios-chatboxes"
+                icon-off="ion-ios-chatboxes-outline"><!-- ngIf: badge --><!-- ngIf: getIconOn() && isTabActive() -->
+            <!-- ngIf: getIconOff() && !isTabActive() --><i class="icon ion-ios-chatboxes-outline"
+                                                            ng-if="getIconOff() &amp;&amp; !isTabActive()"></i><!-- end ngIf: getIconOff() && !isTabActive() --><span
+                    class="tab-title ng-binding" ng-bind-html="title">协助</span></a><a
+                ng-class="{'tab-item-active': isTabActive(), 'has-badge':badge, 'tab-hidden':isHidden()}"
+                ng-disabled="disabled()" class="tab-item" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+            <!-- ngIf: badge --><!-- ngIf: getIconOn() && isTabActive() --><!-- ngIf: getIconOff() && !isTabActive() --><i
+                class="icon ion-ios-gear-outline" ng-if="getIconOff() &amp;&amp; !isTabActive()"></i><!-- end ngIf: getIconOff() && !isTabActive() --><span
+                class="tab-title ng-binding" ng-bind-html="title">问答</span></a><a
+                ng-class="{'tab-item-active': isTabActive(), 'has-badge':badge, 'tab-hidden':isHidden()}"
+                ng-disabled="disabled()" class="tab-item" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+            <!-- ngIf: badge --><!-- ngIf: getIconOn() && isTabActive() --><!-- ngIf: getIconOff() && !isTabActive() --><i
+                class="icon ion-ios-gear-outline" ng-if="getIconOff() &amp;&amp; !isTabActive()"></i><!-- end ngIf: getIconOff() && !isTabActive() --><span
+                class="tab-title ng-binding" ng-bind-html="title">更多</span></a></div>
+        <ion-nav-view name="tab-diagnose " class="view-container tab-content" nav-view="active"
+                      nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Diagnose" hide-nav-bar="true" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class="scroll-content ionic-scroll has-tabs item-bg">
+
+                    <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+                        <div class="content has-header ionic-pseudo">
+
+                            <div class="list">
+                                <div>
+                                    <a class="item-engineer item-thumbnail-left item-engineer-has-right">
+                                        <img src="../img/engineer-Zhao.png">
+
+
+                                        <p class="item-engineer-skill">擅长：<img src="../img/nissan_png.png"><img
+                                                src="../img/Rolls_Royce.png"></p>
+
+                                        <p class="item-engineer-rate">解决率：<span>100%</span></p>
+
+                                        <p class="item-engineer-introduce">介绍：技能太多，此处暂不赘述。</p>
+
+
+                                        <p class="item-engineer-name">赵工</p>
+                                    </a>
+                                    <a class="item-engineer-chat-box  " href="#">
+                                        <i class="iconfont icon-duihua chatBoxIcon"></i>
+
+                                        <p>咨询</p></a>
+
+                                </div>
+                                <div>
+                                    <a class="item-engineer item-thumbnail-left item-engineer-has-right">
+                                        <img src="../img/engineer-Zhao.png">
+
+
+                                        <p class="item-engineer-skill">擅长：<img src="../img/nissan_png.png"><img
+                                                src="../img/Rolls_Royce.png"></p>
+
+                                        <p class="item-engineer-rate">解决率：<span>100%</span></p>
+
+                                        <p class="item-engineer-introduce">介绍：技能太多，此处暂不赘述。</p>
+
+
+                                        <p class="item-engineer-name">赵工</p>
+                                    </a>
+                                    <a class="item-engineer-chat-box " href="#">
+                                        <i class="iconfont icon-duihua chatBoxIcon"></i>
+
+                                        <p>咨询</p>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="scroll-bar scroll-bar-v">
+                        <div class="scroll-bar-indicator scroll-bar-fade-out"
+                             style="-webkit-transform: translate3d(0px, 0px, 0px) scaleY(1); height: 0px;"></div>
+                    </div>
+                </ion-content>
+            </ion-view>
+            <div class="type-height tipbox " >
+                <div class="tipbox-content">
+                    <span class="tipbox-span"><i class="tipbox-engineer-name">高晓风专家</i>正在为您服务大王达大厦大苏打</span>
+
+                    <button class="tipbox-button">
+                        <span class="tipbox-back-text">返回聊天窗口</span>
+                        <i class="ion-chevron-right"></i>
+
+                    </button>
+                </div>
+            </div>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<div class="tipbox" style="display:block;" on-touch="closeModal()"></div>
+<div class="tipbox-content" style="width:80%;">
+
+    <form name="modifyName" ng-submit="submitModifyNickName(modifyName.nickName.$error)" novalidate>
+    <div class="change-name-content">
+            <h4 class="tipbox-title">昵称</h4>
+            <label><input check-nick-name some-property="{{userId}}{{personData}}" class="change-name-input" type="text"
+                          ng-model="personData.nickName" name="nickName" required/></label>
+            <div ng-messages="modifyName.nickName.$error">
+                <div class="change-name-tips" ng-message="required">请输入新昵称</div>
+                <div class="change-name-tips" ng-message="nickNameTime">昵称一天只能修改一次</div>
+            </div>
+        </div>
+        <div class="button-bar individual-set-button-bar">
+            <a class="button chat-tipbox-button individual-set-button-cancel" href="#"
+               ng-click="closeNickNameModal()">取消</a>
+            <input type="submit" class="button chat-tipbox-button individual-set-button-confirm" value="确定">
+        </div>
+    </form>
+
+
+</div>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>My news</title>
+
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style></style>
+</head>
+<body>
+
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="nav-bar-block " nav-bar="active">
+        <ion-header-bar class="bar-positive bar bar-header disable-user-behavior" align-title="center">
+            <button class="button back-button buttons  button-clear header-item">
+                <i class="icon ion-ios-arrow-back"></i>
+                <span class="back-text"></span>
+            </button>
+            <div class="title title-center header-item">我的消息</div>
+
+            <button class="button back-button buttons  button-clear header-item">清空</button>
+
+        </ion-header-bar>
+    </div>
+</ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+        <ion-nav-view name="tab-chats" class="view-container tab-content" nav-view="active" nav-view-transition="ios"
+                      nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Ben Sparrow" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class=" scroll-content ionic-scroll  has-header  scroll-width scroll-bg-color">
+                    <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+                        <div class="item item-divider item-bg ">
+                            <div class="switch-menu clearfix">
+                                <span class="switch-menu-sub-menu ">
+                                        提问
+                                    <span class="message-prompt">
+                                        <span>2</span>
+                                    </span>
+                                </span>
+                                <span class="switch-menu-sub-menu switching-effect">
+                                    回答
+                                    <span class="message-prompt">
+                                             <span>2</span>
+                                         </span>
+                                </span>
+                                <span class="switch-menu-sub-menu">
+                                    通知
+                                    <span class="message-prompt">
+                                             <span>2</span>
+                                         </span>
+                                </span>
+                            </div>
+                            <div class="the-message">
+                                <div class="the-message-block clearfix">
+                                    <div class="user-message-action clearfix">
+                                        <img src="../img/avatar.jpg">
+
+                                        <p class="the-message-user-name">世界那么大<span class="add-question">追问你：</span></p>
+                                        <p class="the-message-time">16分钟前</p>
+                                    </div>
+                                    <p class="user-name-and-action clearfix" >
+                                        汽车电子节气门有没有怠速电机的？？为什么？？ 汽车电子节气门有没有怠速电机的？？为什么？？
+                                    </p>
+
+                                    <div class="clearfix the-original-question-block">
+                                        <p class="triangle-up"></p>
+
+                                        <p class="original-question">
+                                            原问题：题问题问题问题问题问题问题问题问题？
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="the-message-block clearfix">
+                                    <div class="user-message-action clearfix">
+                                        <img src="../img/avatar.jpg">
+
+                                        <p class="the-message-user-name">世界那么大<span class="add-question">感谢你：</span></p>
+                                    </div>
+                                    <p class="user-name-and-action">
+                                        谢谢你细致的回答
+                                    </p>
+
+                                    <div class="clearfix the-original-question-block">
+                                        <p class="triangle-up"></p>
+
+                                        <p class="original-question">
+                                            原问题：题问题问题问题问题问题问题问题问题？
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="the-message-block clearfix">
+                                    <div class="user-message-action clearfix">
+                                        <img src="../img/avatar.jpg">
+
+                                        <p class="the-message-user-name">世界那么大<span class="add-question">采纳你：</span></p>
+                                    </div>
+                                    <p class="user-name-and-action">
+                                        你的回答太给力了
+                                    </p>
+
+                                    <div class="clearfix the-original-question-block">
+                                        <p class="triangle-up"></p>
+
+                                        <p class="original-question">
+                                            原问题：题问题问题问题问题问题问题问题问题？
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+
+
+</body>
+</html>

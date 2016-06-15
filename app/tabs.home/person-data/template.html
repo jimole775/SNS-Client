@@ -1,0 +1,44 @@
+<ion-view view-title="个人资料">
+    <ion-content class="scroll-content ionic-scroll item-bg has-header">
+        <div class="scroll item-bg" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+
+            <button class="help-info-button individual-set-avatar" ng-click="showTypeAvatarModal()">
+                <span>头像</span>
+                <i class="ion-chevron-right"></i>
+                <img class="individual-set-avatar-img" ng-src="{{personData.icon| prefixSrc}}" alt=""/>
+            </button>
+
+            <button class="help-info-button individual-set-button set-border-top" ng-click="showNickNameModal()">
+                <span>昵称</span>
+                <i class="ion-chevron-right "></i>
+                <span class="individual-set-name-show">{{personData.nickName}}</span>
+            </button>
+            <!--ng-click="showSexModal()"-->
+            <button class="help-info-button individual-set-button" ng-click="showSexModal()">
+                <span>性别</span>
+                <i class="ion-chevron-right "></i>
+                <span class="individual-set-sexual-show" ng-if="personData.sex==1">男</span>
+                <span class="individual-set-sexual-show" ng-if="personData.sex==2">女</span>
+               <!-- <span class="individual-set-sexual-show">{{personData.sex}}</span>-->
+            </button>
+
+            <!--实名认证暂时不开放-&#45;&#45;注释-->
+            <!--<button class="help-info-button individual-set-button" ui-sref="tab.home.real-name" >
+                <span>实名认证</span>
+                <i class="ion-chevron-right"></i>
+                <span class="individual-set-sexual-show">立即认证</span>
+            </button>-->
+        </div>
+        <div class="split-personal-other">
+            <button class="help-info-button individual-set-button set-border-top">
+                <span>电话号码</span>
+                <!--<i class="ion-chevron-right"></i>-->
+                <span class="individual-set-sexual-show">{{personData.userName}}</span>
+            </button>
+            <button class="help-info-button individual-set-button">
+                <span>等级</span>
+                <span class="individual-set-level-show">{{personData.grade}}</span>
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

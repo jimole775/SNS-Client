@@ -1,0 +1,15 @@
+<ion-view view-title="车系">
+    <ion-content>
+        <div class="list">
+
+          <!--  <div class="item item-divider">
+                Candy Bars
+            </div-->
+
+            <a class="item" href="#" ng-repeat="cars in CarsSeries" ui-sref="tab.conversations.vehicleInformation-year-type({brandId:brandId,carsSeriesId:cars.id})">
+                {{cars.name}}
+            </a>
+
+        </div>
+    </ion-content>
+</ion-view>

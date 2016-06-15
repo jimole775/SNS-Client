@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="nav-bar-block " nav-bar="active">
+        <ion-header-bar class="bar-positive bar bar-header disable-user-behavior" align-title="center">
+            <button class="button back-button buttons  button-clear header-item">
+                <i class="icon ion-ios-arrow-back"></i>
+                <span class="back-text"></span>
+            </button>
+            <div class="title title-center header-item">个人资料</div>
+        </ion-header-bar>
+    </div>
+</ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+        <ion-nav-view name="tab-chats" class="view-container tab-content" nav-view="active" nav-view-transition="ios"
+                      nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Ben Sparrow" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class="scroll-content ionic-scroll item-bg has-header">
+
+                    <div class="scroll item-bg" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+                        <button class="help-info-button individual-set-avatar">
+                            <span>头像</span>
+
+                            <i class="ion-chevron-right"></i>
+                            <img class="individual-set-avatar-img" src="" alt=""/>
+                        </button>
+
+                        <button class="help-info-button individual-set-button">
+                            <span>名称</span>
+                            <i class="ion-chevron-right"></i>
+                            <span class="individual-set-name-show">名称</span>
+
+
+                        </button>
+                        <button class="help-info-button individual-set-button">
+                            <span>性别</span>
+                            <i class="ion-chevron-right"></i>
+                            <span class="individual-set-sexual-show">性别</span>
+
+
+                        </button>
+                        <button class="help-info-button individual-set-button">
+                            <span>等级</span>
+
+                            <span class="individual-set-level-show">1</span>
+
+
+                        </button>
+                    </div>
+
+                </ion-content>
+            </ion-view>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+<div class="tipbox" style="display:block;">
+    <div class="tipbox-content" style="width:80%;">
+        <div class="change-name-content">
+            <h4 class="tipbox-title">名称</h4>
+            <label><input class="change-name-input" type="text"/></label>
+
+            <p class="change-name-tips">名字一天只能修改一次</p>
+        </div>
+        <div class="button-bar individual-set-button-bar">
+            <a class="button chat-tipbox-button individual-set-button-cancel" href="#">取消</a>
+            <a class="button chat-tipbox-button individual-set-button-confirm" href="#">确定</a>
+
+        </div>
+
+    </div>
+</div>
+<div class="tipbox" style="display:none;">
+    <div class="tipbox-content " style="width:80%;">
+        <h4 class="tipbox-title">
+            性别选择
+        </h4>
+        <button class="help-info-button individual-set-tips-button">
+            男
+        </button>
+        <button class="help-info-button individual-set-tips-button">
+            女
+        </button>
+
+    </div>
+</div>
+<div class="tipbox" style="display:none">
+    <div class="tipbox-content" style="width:80%;">
+        <h4 class="tipbox-title">
+            头像选择
+        </h4>
+        <button class="help-info-button individual-set-tips-button individual-set-tips-button-hit">相机拍照
+
+
+        </button>
+        <button class="help-info-button individual-set-tips-button">
+            从相册中选择
+
+
+        </button>
+
+    </div>
+</div>
+</body>
+</html>

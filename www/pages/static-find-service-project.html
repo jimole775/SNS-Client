@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="nav-bar-block " nav-bar="active">
+        <ion-header-bar class="bar-positive bar bar-header disable-user-behavior" align-title="center">
+            <button class="button back-button buttons  button-clear header-item">
+                <i class="icon ion-ios-arrow-back"></i>
+                <span class="back-text"></span>
+            </button>
+            <div class="title title-center header-item">按服务项目</div>
+        </ion-header-bar>
+    </div>
+</ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+        <ion-nav-view name="tab-chats" class="view-container tab-content" nav-view="active" nav-view-transition="ios"
+                      nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Ben Sparrow" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class=" scroll-content ionic-scroll  has-header  scroll-width scroll-bg-color">
+                    <div class="item project-avatar project-item-height item-first"><span
+                            class="project-item-p pro-text-color">不限</span></div>
+                    <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+                        <div class="item item-divider item-bg">
+                            <span class="project-item-span">分类一</span>
+                        </div>
+                    </div>
+
+                        <div class="service-project-list clearfix">
+                            <ul class="service-project-ul">
+                                <li class="ul-ul-style service-li-border"><a class=" pro-text-color" href="#">冷却系统维修</a></li>
+                                <li class="ul-ul-style service-li-border"><a class=" pro-text-color" href="#">电路维修</a></li>
+                                <li class="ul-ul-style service-li-border"><a class=" pro-text-color" href="#">油路维修</a></li>
+                                <li class="ul-ul-style service-li-border "><a class=" pro-text-color" href="#">油路维修</a></li>
+                                <li class="ul-ul-style service-li-border"><a class=" pro-text-color" href="#">发动机维修</a></li>
+                                <li class="ul-ul-style service-li-border"><a class=" pro-text-color" href="#">发动机维修</a></li>
+                                <li class="ul-ul-style service-li-border"><a class=" pro-text-color" href="#">冷却系统维修</a></li>
+                                <li class="ul-ul-style service-li-border"><a class=" pro-text-color" href="#"></a></li>
+                            </ul>
+                        </div>
+
+                    <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+                        <div class="item item-divider item-bg">
+                            <span class="project-item-span">分类二</span>
+                        </div>
+                    </div>
+                    <div class="service-project-list">
+                        <ul class="service-project-ul">
+                            <li class="ul-ul-style service-li-border"><a class=" pro-text-color" href="#">冷却系统维修</a></li>
+                            <li class="ul-ul-style service-li-border"><a class=" pro-text-color" href="#">电路维修</a></li>
+                            <li class="ul-ul-style service-li-border"><a class=" pro-text-color" href="#">油路维修</a></li>
+                            <li class="ul-ul-style service-li-border "><a class=" pro-text-color" href="#">油路维修</a></li>
+                        </ul>
+                    </div>
+
+                </ion-content>
+            </ion-view>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+
+
+</body>
+</html>

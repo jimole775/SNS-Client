@@ -1,0 +1,89 @@
+<ion-view view-title="新的朋友">
+    <ion-nav-buttons side="right">
+        <a class="button button-icon" ui-sref="tab.circle.find">添加好友</a>
+    </ion-nav-buttons>
+    <ion-content class="item-bg">
+        <div class="list">
+            <div class="item-friends-box">
+                <label class="item-input find-item-input">
+                    <i class="iconfont icon-search placeholder-icon search-icon"></i>
+                    <input class="find-text" placeholder="昵称/姓名" type="text" ng-model="searchNewFriend.friend">
+                </label>
+            </div>
+        </div>
+        <p class="item-divider-empty"></p>
+
+        <!--//此版本暂时不添加此功能,先注释-->
+        <!--<div class="list">
+            <ion-item class="item item-action-head-portrait" ui-sref="tab.circle.contact-compare">
+                 <span class="function-module-ion-block add-newFriend-function-independent-bg">
+                        <i class="iconfont icon-phone personal-ion function-module-ion"></i>
+                 </span>
+
+                <p class="item-friends-description">添加手机联系人</p>
+            </ion-item>
+        </div>
+        <p class="item-divider-empty"></p>-->
+        <!--//Loading加载-->
+        <!--<div class="addFriendSpinner">
+            <div class="spinner-container container1">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container2">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+            <div class="spinner-container container3">
+                <div class="circle1"></div>
+                <div class="circle2"></div>
+                <div class="circle3"></div>
+                <div class="circle4"></div>
+            </div>
+        </div>-->
+        <div style="text-align: center;color: #999 ;padding-top: 20px;" ng-if="showTheMessage">
+            <p>您目前还没有好友,请点击<span style="color: #007aff">添加好友</span>进行添加好友</p>
+        </div>
+        <ion-list>
+            <ion-item class="item item-friends-head-portrait" collection-repeat="user in userList">
+                <img ng-src="{{ user.icon | prefixSrc }}"
+                     ui-sref="tab.circle.user-detail({id: user.id})">
+
+                <span class="badge friends-badge-level">J{{ user.grade }}</span>
+
+                <h2 class="new-friend-nickname">{{ user.nickName }}</h2>
+
+                <p>{{user.userName}}</p>
+
+                <p class="new-friends-state-right">
+
+                    <button ng-if="user.relation==4" ng-click="showAddPrompt($event, user)"
+                            class="button new-friend-button-small button-balanced"> 接受
+                    </button>
+                    <button ng-if="user.relation==4" ng-click="showRefusedPrompt($event, user)"
+                            class="button new-friend-button-small button-assertive"> 拒绝
+                    </button>
+                    <span ng-if="user.relation==2" class="new-friend-state">已添加</span>
+                    <span ng-if="user.relation==1" class="new-friend-state">等待验证</span>
+                    <!--<span ng-if="user.relation==3" class="new-friend-state">已拒绝</span>-->
+
+                </p>
+
+               <!-- <ion-option-button class="button-assertive"
+                                   ng-click="removeApplyFriend($event, user)">
+                    删除
+                </ion-option-button>-->
+                <ion-option-button class="button-assertive"
+                                   ng-click="showPrompt($event, user)">
+                    删除
+                </ion-option-button>
+
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

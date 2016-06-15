@@ -1,0 +1,64 @@
+<div class="tipbox" style="">
+    <div class="set-confirm">
+        <div start-end-directive class="button-bar" >
+            <a class="button star-time-btn" ng-class="{'star-end-no-bg':currentTimeTab == 'currentTimeTab1'}" ng-click="selectTimeTab('currentTimeTab1')" href="#">开始时间</a>
+            <a class="button end-time-btn" ng-class="{'star-end-no-bg':currentTimeTab == 'currentTimeTab2'}" ng-click="selectTimeTab('currentTimeTab2')" href="#">结束时间</a>
+        </div>
+        <div ng-if="currentTimeTab == 'currentTimeTab1'" class="time-block">
+            <!--<ion-scroll zooming="false" direction="y" class="ion-scroll-size"> </ion-scroll>-->
+            <div class="time-block-left">
+                <ion-scroll hour-directive="hourDirective" zooming="false" direction="y" class="ion-scroll-size"
+                            on-scroll="anchorScroll()" scrollbar-y="false" delegate-handle="hourScroll">
+                    <span></span>
+                    <hours-directive></hours-directive>
+                    <span></span>
+                </ion-scroll>
+                <div class="middle-time">
+                    <span class="middle-time-text">时</span>
+                </div>
+            </div>
+            <div class="time-block-right">
+                <ion-scroll minute-directive="minuteDirective" zooming="false" direction="y" class="ion-scroll-size"
+                            on-scroll="anchorScroll()" scrollbar-y="false" delegate-handle="minuteScroll">
+                    <span></span>
+                    <!--<span minutes-directive="minutesDirective" ng-repeat="minute in minuteArr">{{minute.minute}}</span>-->
+                    <minutes-directive></minutes-directive>
+                    <span></span>
+                </ion-scroll>
+                <div class="middle-time">
+                    <span class="middle-time-text">分</span>
+                </div>
+            </div>
+        </div>
+        <div ng-if="currentTimeTab == 'currentTimeTab2'" class="time-block">
+            <!--<ion-scroll zooming="false" direction="y" class="ion-scroll-size"> </ion-scroll>-->
+            <div class="time-block-left">
+                <ion-scroll hour-directive="hourDirective" zooming="false" direction="y" class="ion-scroll-size"
+                            on-scroll="anchorScroll()" scrollbar-y="false" delegate-handle="hourScroll">
+                    <span></span>
+                    <hours-directive></hours-directive>
+                    <span></span>
+                </ion-scroll>
+                <div class="middle-time">
+                    <span class="middle-time-text">时</span>
+                </div>
+            </div>
+            <div class="time-block-right">
+                <ion-scroll minute-directive="minuteDirective" zooming="false" direction="y" class="ion-scroll-size"
+                            on-scroll="anchorScroll()" scrollbar-y="false" delegate-handle="minuteScroll">
+                    <span></span>
+                    <!--<span minutes-directive="minutesDirective" ng-repeat="minute in minuteArr">{{minute.minute}}</span>-->
+                    <minutes-directive></minutes-directive>
+                    <span></span>
+                </ion-scroll>
+                <div class="middle-time">
+                    <span class="middle-time-text">分</span>
+                </div>
+            </div>
+        </div>
+        <div class="button-bar">
+            <a class="button chat-tipbox-button" href="#" ng-click="timeCancel()">取消</a>
+            <a class="button chat-tipbox-button" href="#" ng-click="timeConfirm()">确定</a>
+        </div>
+    </div>
+</div>

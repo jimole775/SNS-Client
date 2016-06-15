@@ -1,0 +1,40 @@
+<ion-view view-title="选择原因">
+    <ion-nav-buttons side="right">
+        <a class="button button-icon" ng-click="sendReason()">发送</a>
+    </ion-nav-buttons>
+    <ion-content class="item-bg">
+        <p class="item-divider-empty search-results-describe report-why-text">请举证（选填）</p>
+
+        <div class="list">
+            <a class="item" ng-click="getChooseChatRecord()">
+                聊天记录
+                <span class="item-note item-note-has-text-report"
+                      ng-show="groupReport.chatEvidence == ''">
+                        未选择
+                </span>
+                <span class="item-note item-note-has-text-report"
+                      ng-show="groupReport.chatEvidence !== ''">
+                        1条消息
+                </span>
+            </a>
+            <a class="item" ng-click="getChoosePic()">
+                图片证据
+                <span class="item-note item-note-has-text-report"
+                      ng-show="picEvidence.length == 0">
+                        未选择
+                </span>
+                <span class="item-note item-note-has-text-report"
+                      ng-show="picEvidence.length > 0">
+                        {{picEvidence.length}}张图片
+                </span>
+            </a>
+        </div>
+        <div class="picList">
+            <ul class="report-evidence-pic-list">
+                <li class="report-evidence-pic" ng-repeat="pic in picEvidence">
+                    <img class="evidence-pic-img"  ng-src="{{pic.accessory |prefixSrc}}">
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

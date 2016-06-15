@@ -1,0 +1,17 @@
+<div class="tipbox" style="display:block;">
+    <div class="tipbox-content" style="width:80%;">
+        <form name="modifyGroupName" ng-submit="groupNickNameSubmit()" novalidate>
+            <div class="change-name-content">
+                <h4 class="tipbox-title">我的名片</h4>
+                <label>
+                    <input check-group-name class="change-name-input" type="text"
+                              ng-model="groupModal.groupNickName"   placeholder="{{ group.groupNickName}}" required  name="name"/>
+                </label>
+            </div>
+            <div class="button-bar individual-set-button-bar">
+                <a class="button chat-tipbox-button individual-set-button-cancel" href="#"  ng-click="closeModifyNickName()">取消</a>
+                <input type="submit"  class="button chat-tipbox-button individual-set-button-confirm" value="确定">
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<ion-view>
+    <ion-header-bar class="bar-technician__circle">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="goBackSearchFilter()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <h1 class="title">请选择品牌</h1>
+
+        <div class="buttons">
+            <button class="button button-clear" ng-click="sureSelect()">
+                确定
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="item-bg">
+        <!--<input class="" type="checkbox" ng-checked="flag.isAllSelectedFlag" ng-click="selectAll($event)">全选/全不选(据说往后业务需要增加此功能暂时不做UI效果)
+-->
+        <div ng-repeat="categoryInAlpha in brandListCategoryInAlpha">
+            <p class="item-divider-empty letter-results-describe">{{categoryInAlpha.initial}}</p>
+
+            <div class="list">
+                <div class="item-friends-box">
+
+                    <div class="group-chat-block remove-top-bottom-border" ng-repeat="brand in categoryInAlpha.userList">
+                        <div class="remove-bottom-border">
+                            <ion-checkbox class="item-checkbox-technician__circle"  ng-model="brand.isChecked">
+                                <img ng-src="{{ brand.icon_ur | prefixSrc }}">
+                                <span class="item-checkbox-technician__circle-text">{{ brand.name }}</span>
+                            </ion-checkbox>
+                        </div>
+                        <!--<ion-item class="item item-friends-head-portrait">
+                            <img ng-src="{{brand.icon | prefixSrc}}">
+
+                            <p class="item-friends-description">{{brand.name}}</p>
+                        </ion-item>
+                        <label class="group-chat-checkbox checkbox">
+                            <input type="checkbox" ng-model="brand.isChecked">
+                        </label>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

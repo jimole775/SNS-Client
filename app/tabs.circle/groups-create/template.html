@@ -1,0 +1,87 @@
+<ion-view view-title="群设置">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon" ng-click="save()">确定</button>
+    </ion-nav-buttons>
+    <ion-content class="item-bg" ng-click="isShowInitial()">
+        <!--<p class="item-divider-empty"></p>-->
+
+        <div class="list">
+
+            <ul class="item-friends-box friend-message-box clearfix">
+
+                <li class="friend-message">
+                    <img ng-src="{{currentUser.icon| prefixSrc }}">
+
+                    <p class="friend-message-nikeName">{{currentUser.nickName}}</p>
+                </li>
+
+                <li class="friend-message" ng-repeat="item in userList | filter :{'isChecked':true}">
+                    <a>
+                        <span><img ng-src="{{ item.icon | prefixSrc }}" ng-click="ViewsDetails(item.id)" ></span>
+                    <span class="delete-friends-btn-ion" ng-click="removeFriend(evt,item)" ng-show="voiceShow">
+                        <!--<i class="ion-minus "></i>-->
+                        <i class="iconfont icon-minus minus-btn-ion"></i>
+                    </span>
+                    <span class="delete-friends-hidden" ng-hide="voiceShow">
+                         <i class="iconfont icon-minus minus-btn-ion"></i>
+                    </span>
+                    </a>
+
+                    <p class="friend-message-nikeName">{{item.nickName}}</p>
+                </li>
+
+                <li class="friend-message" ng-show="isShowAddFriend">
+                    <button type="button" class="friend-message-ion" ng-click="addFriend()"><i class="ion-plus"></i>
+                    </button>
+                    <p class="friend-message-nikeName function-text-details">添加成员</p>
+                </li>
+
+                <li class="friend-message" ng-show="isShowRemoveFriend">
+                    <button type="button" class="friend-message-ion" ng-click="removeFriendState()">
+                        <i class="ion-minus "></i>
+                    </button>
+                    <p class="friend-message-nikeName function-text-details">删除成员</p>
+                </li>
+
+            </ul>
+        </div>
+        <p class="item-divider-empty-group"></p>
+
+        <div class="list">
+            <a class="item item-toggle item-group-avatar">
+                群头像
+                <img src="img/BMW_png.png">
+            </a>
+            <li class="item item-toggle set-group-name">
+                群名称
+                <input type="text" class="input-text-tight-to-left" placeholder="请输入群名称"
+                       ng-model="group.name" readonly ng-click="createGroupName()">
+            </li>
+
+        </div>
+        <p class="item-divider-empty-group"></p>
+        <ul class="list">
+
+            <li class="item item-toggle">
+                允许陌生人加入群
+                <label class="toggle toggle-balanced" ng-click="isStrangerJoin()">
+                    <input type="checkbox">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                群可被用户搜索
+                <label class="toggle toggle-balanced" ng-click="isCanBeSearch()">
+                    <input type="checkbox">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>

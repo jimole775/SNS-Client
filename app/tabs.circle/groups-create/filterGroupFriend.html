@@ -1,0 +1,53 @@
+<ion-view>
+    <ion-header-bar class="bar-technician__circle">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="goBackGroupList()">
+                <i class="iconfont icon-return return-size-pop"></i>
+            </button>
+        </div>
+        <h1 class="title">选择群成员</h1>
+
+        <div class="buttons">
+            <button class="button button-clear"  ng-disabled="activateSave()" ng-click="saveSelected()">
+                确定
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="item-bg">
+        <div class="list">
+            <div class="item-friends-box">
+                <label class="item-input find-item-input">
+                    <i class="iconfont icon-search placeholder-icon search-icon"></i>
+                    <input type="text" name="text" class="find-text" placeholder="搜索好友" ng-model="SearchUser.nickName" >
+                </label>
+            </div>
+        </div>
+        <div ng-repeat="category in userListCategoryInAlpha">
+            <p class="item-divider-empty letter-results-describe">{{category.initial}}</p>
+
+            <div class="list">
+                <div class="item-friends-box" >
+                    <div class="group-chat-block remove-top-bottom-border" ng-repeat="user in category.userList">
+                        <div class="remove-bottom-border">
+                            <!--<ion-checkbox class="item-checkbox-technician__circle" ng-model="user.isChecked"
+                                          ng-disabled="user.selected===1&&user.isChecked">
+                                <img ng-src="{{ user.icon | prefixSrc }}">
+                                <span class="item-checkbox-technician__circle-text">{{ user.nickName }}</span>
+                            </ion-checkbox>-->
+                            <p class="item item-checkbox checkbox-img-block">
+                                <img ng-src="{{ user.icon | prefixSrc }}">
+                                <label class="checkbox clearfix">
+                                    <input class="checkbox-input-locat" type="checkbox" ng-model="user.isChecked"
+                                           ng-disabled="user.selected===1&&user.isChecked">
+                                </label>
+                                <span class="friends-checkbox-nikename">{{ user.nickName }}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="list-number" ng-if="userListArr>0">{{userListArr}}个联系好友</p>
+    </ion-content>
+
+</ion-view>

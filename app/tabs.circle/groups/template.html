@@ -1,0 +1,22 @@
+<ion-view view-title="群列表">
+    <ion-nav-buttons side="right">
+        <a class="button button-icon" ui-sref="tab.circle.groups-create">
+            <i class="iconfont icon-add menu-size"></i>
+        </a>
+    </ion-nav-buttons>
+    <ion-content class="item-bg">
+        <p class="item-divider-empty search-results-describe" ng-show="groupList.length > 0">群聊</p>
+
+        <div class="list">
+            <div class="item-friends-box">
+                <ion-item class="item item-friends-head-portrait" collection-repeat="group in groupList"
+                          ui-sref="tab.conversations.conversation.GROUP({targetId: group.id, conversationType: 'GROUP'})">
+                    <img ng-src="{{ group.icon | prefixSrc }}">
+
+                    <p class="item-friends-description">{{ group.groupName }}</p>
+                </ion-item>
+            </div>
+        </div>
+        <p class="list-number" ng-if="groupList.length>0">{{ groupList.length }}个群聊</p>
+    </ion-content>
+</ion-view>

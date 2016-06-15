@@ -1,0 +1,127 @@
+<ion-view view-title="群设置">
+    <!--<ion-nav-buttons side="left">
+        <button class="button button-clear" ng-click="goBackGroup()">
+            <i class="icon ion-ios-arrow-back"></i>
+        </button>
+    </ion-nav-buttons>-->
+    <!--<ion-nav-buttons side="right">-->
+        <!--<button class="button button-icon" ng-click="save()">确定</button>-->
+    <!--</ion-nav-buttons>-->
+    <ion-content class="item-bg" ng-click="handleClickBlankArea()">
+        <!--<p class="item-divider-empty-group"></p>-->
+
+        <div class="list">
+
+            <ul class="item-friends-box friend-message-box clearfix">
+
+                <li class="friend-message" ng-if="isShowMyIcon">
+                    <img ng-src="{{currentUser.icon| prefixSrc }}">
+
+                    <p class="friend-message-nikeName">{{currentUser.nickName}}</p>
+                </li>
+
+                <li class="friend-message"
+                    ng-repeat="member in group.members">
+                    <a>
+                        <img data-id="{{ member.userId }}" ng-src="{{member.icon | prefixSrc}}" ng-click="ViewsDetails(member.userId)">
+                        <span class="delete-friends-btn-ion" ng-show="voiceShow" ng-click="removeFriend(evt, member)">
+                             <i class="iconfont icon-minus minus-btn-ion"></i>
+                            <i></i>
+                        </span>
+                        <span class="delete-friends-hidden">
+                            <i class="iconfont icon-minus minus-btn-ion " ng-hide="voiceShow"></i>
+                        </span>
+                    </a>
+
+                    <p class="friend-message-nikeName">{{member.nickName}}</p>
+                </li>
+
+                <li class="friend-message">
+                    <button type="button" class="friend-message-ion" ng-click="handleClickAddBtn()"><i
+                            class="ion-plus"></i>
+                    </button>
+                    <p class="friend-message-nikeName function-text-details">添加成员</p>
+                </li>
+
+                <li class="friend-message" ng-show="isShowRemoveFriend">
+                    <button type="button" class="friend-message-ion" ng-click="handleClickRemoveBtn()">
+                        <i class="ion-minus "></i>
+                    </button>
+                    <p class="friend-message-nikeName function-text-details">删除成员</p>
+                </li>
+
+            </ul>
+        </div>
+        <p class="item-divider-empty-group"></p>
+
+        <div class="list">
+
+            <li class="item item-toggle set-group-name">
+                群名称
+                <input type="text" class="input-text-tight-to-left" placeholder="{{ group.groupName }}"
+                       ng-model="group.groupName"  readonly ng-click="createGroupName()">
+            </li>
+            <a class="item item-toggle item-group-avatar" ng-click="selectAvatar()">
+                群头像
+                <!--<img src="img/avatar.jpg">-->
+                <img ng-src="{{group.icon | prefixSrc}}">
+            </a>
+            <!--<a class="item item-toggle item-group-code">
+                群二维码
+                &lt;!&ndash;<i class="ion-android-expand"></i>&ndash;&gt;
+                <i class="iconfont icon-QR-code"></i>
+            </a>-->
+            <li class="item item-toggle set-group-name">
+                我的昵称
+                <input type="text" class="input-text-tight-to-left" placeholder="{{ group.groupNickName}}"
+                       ng-model="group.groupNickName"  readonly ng-click="createGroupNickName()">
+            </li>
+
+        </div>
+        <p class="item-divider-empty-group"></p>
+        <ul class="list">
+            <!--<ion-toggle ng-model="group.isNoDisturbBoolean" toggle-class="toggle toggle-balanced">消息免打扰</ion-toggle>-->
+            <li class="item item-toggle">
+                消息免打扰
+                <label class="toggle toggle-balanced" ng-click="modifyIsNoDisturb()">
+                    <input type="checkbox" ng-model="group.isNoDisturb">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+           <!-- <a class="item item-toggle item-group-avatar" ui-sref="tab.conversations.group-message-history({targetId: group.id})">查看聊天记录</a>
+            <a class="item item-toggle item-group-avatar">清空聊天记录</a>-->
+        </ul>
+        <p class="item-divider-empty-group"></p>
+        <ul class="list">
+            <li class="item item-toggle">
+                允许陌生人加入群
+                <label class="toggle toggle-balanced" ng-click="modifyIsAllowStranger()">
+                    <input type="checkbox" ng-model="group.isAllowStranger">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <li class="item item-toggle">
+                群可被用户搜索
+                <label class="toggle toggle-balanced" ng-click="modifyIsAllowSearch()">
+                    <input type="checkbox" ng-model="group.isAllowSearch">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+            <!--<a class="item item-toggle item-group-code" ui-sref="tab.conversations.group-report({targetId: group.id})">举报群</a>-->
+        </ul>
+        <div class="refund-group-btn">
+            <button class="button button-block button-assertive" ng-click="deleteSave()">
+                删除并退出群
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

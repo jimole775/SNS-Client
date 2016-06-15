@@ -1,0 +1,21 @@
+<ion-view view-title="选择原因">
+    <ion-nav-buttons side="right">
+        <!--<a class="button button-icon" ui-sref="tab.conversations.group-report-evidence({targetId: group.id})"
+           ng-disabled=" !isActiveReport() ">下一步</a>-->
+        <a class="button button-icon" ng-disabled="!beReportNext()" ui-sref="tab.conversations.group-report-evidence({targetId: groupReport.groupId})" ng-click="NextGroupEvidence()">下一步</a>
+    </ion-nav-buttons>
+    <ion-content class="item-bg">
+        <p class="item-divider-empty search-results-describe report-why-text">请选择举报原因</p>
+
+        <div class="list">
+            <label class="item item-radio" ng-repeat="item in reportReason">
+                <input type="radio" name="group" ng-click="serverSideChange(item)">
+                <div class="item-content">
+                    {{ item.reason }}
+                </div>
+                <i class="radio-icon iconfont icon-Hook hook-type"></i>
+            </label>
+        </div>
+
+    </ion-content>
+</ion-view>

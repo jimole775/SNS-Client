@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="../iconfont/iconfont.css"/>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="nav-bar-block " nav-bar="active">
+        <ion-header-bar class="bar-positive bar bar-header disable-user-behavior" align-title="center">
+            <button class="button back-button buttons  button-clear header-item">
+                <i class="icon ion-ios-arrow-back"></i>
+                <span class="back-text"></span>
+            </button>
+            <div class="title title-center header-item">咨询中...</div>
+
+            <button class="button back-button buttons button-clear header-item"><span class="back-text">结束咨询</span>
+            </button>
+
+        </ion-header-bar>
+    </div>
+</ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+        <!-----------------底部按钮-------------------->
+        <div class="feature-tabs">
+            <p class="button-bar button-bar-align">
+                <button class="chat-yuyin-btn">
+                    <i class="iconfont icon-yuyin"></i>
+                </button>
+                <label class="item item-input chat-input">
+                    <input type="text">
+                </label>
+                <button class="chat-send-btn">发送
+
+                </button>
+            </p>
+            <ul class="feature-list">
+
+
+                <li>
+                    <a href=""><i class="iconfont icon-tupian feature-tupian"></i>
+
+                    <p>图片</p></a>
+                </li>
+                <li>
+                    <a href=""><i class="iconfont icon-shipin feature-shipin"></i>
+
+                    <p>视频</p></a>
+                </li>
+                <li>
+                    <a href=""><i class="iconfont icon-jiancebaogao feature-jiancebaogao"></i>
+
+                    <p>检测报告</p></a>
+
+                </li>
+                <li>
+                    <a href=""><i class="iconfont icon-zaixianxiezhu feature-zaixianxiezhu"></i>
+
+                    <p>远程协助</p></a>
+
+                </li>
+
+                <li>
+                    <a href=""><i class="iconfont icon-ditu feature-ditu"></i>
+
+                    <p>位置</p></a>
+                </li>
+                <li>
+                    <a href=""><i class="iconfont icon-cheliangxinxi feature-cheliangxinxi"></i>
+
+                    <p>车辆信息</p></a>
+
+                </li>
+
+
+            </ul>
+        </div>
+
+        <ion-nav-view name="tab-diagnose " class="view-container tab-content" nav-view="active"
+                      nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Diagnose" hide-nav-bar="true" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class="scroll-content ionic-scroll has-tabs item-bg">
+
+                    <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+                        <div class="content has-header ionic-pseudo">
+
+                            <!--车辆信息-->
+                            <div class="chat-car-info-box">
+                                <p>车辆信息：</p>
+
+                                <p>品牌：<span class="">宝马</span> 车系：<span>X5</span> 年款：<span>2013</span></p>
+
+                            </div>
+
+                            <!--显示时间-->
+                            <div class="chat-now-date"><span><i class="">2015-1-20</i> <i>14:26:20</i></span></div>
+
+                            <!--对话界面-->
+                            <ul>
+                                <li class=" chat-box chat-box-left">
+                                    <img src="../img/engineer-Zhao.png">
+                                    <!--对话界面--文字属性-->
+                                    <p class="chat-content chat-content-left">
+                                        <span class="chat-content-words">你好大街上电话卡说得好</span>
+                                    </p>
+                                </li>
+
+                                <li class=" chat-box chat-box-right">
+                                    <img src="../img/engineer-Zhao.png">
+
+                                    <p class="chat-content chat-content-right">
+                                        <span class="chat-content-words">你好大街上电话卡说得好</span>
+                                    </p>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="scroll-bar scroll-bar-v">
+                        <div class="scroll-bar-indicator scroll-bar-fade-out"
+                             style="-webkit-transform: translate3d(0px, 0px, 0px) scaleY(1); height: 0px;"></div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+
+
+</body>
+</html>

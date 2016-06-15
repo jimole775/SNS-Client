@@ -1,0 +1,8 @@
+<div class="tipbox" style="display:block;" on-touch="closeModal()"></div>
+<div class="tipbox-content " style="width:80%;">
+    <h4 class="tipbox-title">
+        性别选择
+    </h4>
+    <button  ng-repeat="item in Sexs" type="button"  class="help-info-button individual-set-tips-button"
+             ng-click="selectedSex($index+1)">{{item.sex}}</button>
+</div>

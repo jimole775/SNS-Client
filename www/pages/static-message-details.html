@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Message details</title>
+
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style></style>
+</head>
+<body>
+
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="nav-bar-block " nav-bar="active">
+        <ion-header-bar class="bar-positive bar bar-header disable-user-behavior" align-title="center">
+            <button class="button back-button buttons  button-clear header-item">
+                <i class="icon ion-ios-arrow-back"></i>
+                <span class="back-text"></span>
+            </button>
+            <div class="title title-center header-item" >消息详情</div>
+
+
+        </ion-header-bar>
+    </div>
+</ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+        <ion-nav-view name="tab-chats" class="view-container tab-content" nav-view="active" nav-view-transition="ios"
+                      nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Ben Sparrow" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class=" scroll-content ionic-scroll  has-header  scroll-width scroll-bg-color">
+
+                    <div class="card-change-style card ">
+                        <div class="item item-text-wrap my-news-text-style">
+                            <h1 class="">消息标题消息标题</h1>
+                            <span class="my-news-time">20小时前</span>
+                            <p  class="my-news-text">问答模块马上就要上线了哦，期待你们来体验问答模块马上就要上线了哦，期待你们来体验问答模块马上就要上线了哦..</p>
+                            <img class="news-more-pic" src="../img/news-more-pic.jpg">
+                            <p   class="news-more-text">
+                                问答模块马上就要上线了哦，期待你们来体验问答模块马上就要上线了哦，期待你们来体验问答模块马上就要上线了哦...
+                                问答模块马上就要上线了哦，期待你们来体验问答模块马上就要上线了哦，期待你们来体验问答模块马上就要上线了哦...
+                        </div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+
+
+</body>
+</html>

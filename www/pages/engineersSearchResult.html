@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link rel="stylesheet" href="../iconfont/iconfont.css"/>
+    <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+<body>
+
+<ion-nav-bar class="bar-stable nav-bar-container">
+    <div class="nav-bar-block " nav-bar="active">
+        <ion-header-bar class="bar-positive bar bar-header disable-user-behavior" align-title="center">
+            <button class="button back-button buttons  button-clear header-item">
+                <i class="icon ion-ios-arrow-back"></i>
+                <span class="back-text"></span>
+            </button>
+            <div class="title title-center header-item">找到的专家</div>
+
+
+        </ion-header-bar>
+    </div>
+</ion-nav-bar>
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <ion-tabs class="tabs-icon-top tabs-color-active-positive pane tabs-bottom tabs-standard" nav-view="active"
+              style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+
+
+
+        <ion-nav-view name="tab-diagnose " class="view-container tab-content" nav-view="active"
+                      nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+            <ion-view view-title="Diagnose" hide-nav-bar="true" class="pane" nav-view="active"
+                      style="opacity: 1; -webkit-transform: translate3d(0%, 0px, 0px);">
+                <ion-content class="scroll-content ionic-scroll item-bg">
+                    <div class="item search-condition item-first has-header">
+                        条件:<span>宝马</span><span>冷却系统维修</span>
+                    </div>
+                    <div class="scroll" style="-webkit-transform: translate3d(0px, 0px, 0px) scale(1);">
+                        <div class="content has-header ionic-pseudo">
+
+                            <div class="list">
+                                <div>
+                                    <a class="item-engineer item-thumbnail-left item-engineer-has-right">
+                                        <img src="../img/engineer-Zhao.png">
+
+
+                                        <p class="item-engineer-skill">擅长：<img src="../img/nissan_png.png"><img
+                                                src="../img/Rolls_Royce.png"></p>
+
+                                        <p class="item-engineer-rate">解决率：<span>100%</span></p>
+
+                                        <p class="item-engineer-introduce">介绍：技能太多，此处暂不赘述。</p>
+
+
+                                        <p class="item-engineer-name">赵工</p>
+                                    </a>
+                                    <a class="item-engineer-chat-box  " href="#">
+                                        <i class="iconfont icon-duihua chatBoxIcon"></i>
+
+                                        <p>咨询</p></a>
+
+                                </div>
+                                <div>
+                                    <a class="item-engineer item-thumbnail-left item-engineer-has-right">
+                                        <img src="../img/engineer-Zhao.png">
+
+
+                                        <p class="item-engineer-skill">擅长：<img src="../img/nissan_png.png"><img
+                                                src="../img/Rolls_Royce.png"></p>
+
+                                        <p class="item-engineer-rate">解决率：<span>100%</span></p>
+
+                                        <p class="item-engineer-introduce">介绍：技能太多，此处暂不赘述。</p>
+
+
+                                        <p class="item-engineer-name">赵工</p>
+                                    </a>
+                                    <a class="item-engineer-chat-box " href="#">
+                                        <i class="iconfont icon-duihua chatBoxIcon"></i>
+
+                                        <p>咨询</p>
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="scroll-bar scroll-bar-v">
+                        <div class="scroll-bar-indicator scroll-bar-fade-out"
+                             style="-webkit-transform: translate3d(0px, 0px, 0px) scaleY(1); height: 0px;"></div>
+                    </div>
+                </ion-content>
+            </ion-view>
+        </ion-nav-view>
+    </ion-tabs>
+</ion-nav-view>
+
+
+</body>
+</html>
